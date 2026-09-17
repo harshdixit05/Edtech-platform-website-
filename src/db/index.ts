@@ -11,12 +11,16 @@ const globalForDb = globalThis as unknown as {
 };
 
 /**
- * A deployment without DATABASE_URL is a UI preview: the marketing site is
- * fully functional and the account screens render their forms, but nothing
- * can be stored. Callers use this to degrade rather than throw.
+ * Accounts need a database to store in and a secret to key the rate limiter
+ * with. Missing either one means the account screens render their forms but
+ * cannot complete, so callers degrade rather than throw.
+ *
+ * Both are checked together because a half-configured deployment — a database
+ * but no secret — otherwise fails deep inside the rate limiter with an
+ * unhandled error rather than an explanation.
  */
-export function isDatabaseConfigured(): boolean {
-  return Boolean(process.env.DATABASE_URL);
+export function isAuthConfigured(): boolean {
+  return Boolean(process.env.DATABASE_URL && process.env.AUTH_SECRET);
 }
 
 function client() {

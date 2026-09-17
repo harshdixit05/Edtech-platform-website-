@@ -2,7 +2,7 @@
 
 import { redirect } from "next/navigation";
 import { and, eq, gt, isNull } from "drizzle-orm";
-import { db, isDatabaseConfigured } from "@/db";
+import { db, isAuthConfigured } from "@/db";
 import { emailVerificationTokens, passwordResetTokens, users } from "@/db/schema";
 import { hashPassword, verifyPassword, fakeVerify } from "./password";
 import { generateToken, hashToken, expiresIn, TOKEN_TTL } from "./tokens";
@@ -23,8 +23,8 @@ export type FormState = {
 };
 
 const GENERIC_LOGIN_ERROR = "That email and password combination is not correct.";
-const NO_DATABASE =
-  "Accounts are not connected on this preview deployment. The screens are here, but nothing is stored yet.";
+const NOT_CONFIGURED =
+  "Accounts are not connected on this deployment yet. The screens are here, but nothing can be stored.";
 const RATE_LIMITED = "Too many attempts. Please wait a few minutes and try again.";
 
 function fieldErrorsFrom(issues: { path: PropertyKey[]; message: string }[]) {
@@ -44,7 +44,7 @@ export async function signupAction(
   _prev: FormState,
   formData: FormData
 ): Promise<FormState> {
-  if (!isDatabaseConfigured()) return { error: NO_DATABASE };
+  if (!isAuthConfigured()) return { error: NOT_CONFIGURED };
 
   const parsed = signupSchema.safeParse({
     name: formData.get("name"),
@@ -143,8 +143,8 @@ async function issueVerificationEmail(userId: string, email: string, name: strin
 export async function verifyEmailToken(
   token: string
 ): Promise<{ ok: boolean; message: string }> {
-  if (!isDatabaseConfigured()) {
-    return { ok: false, message: NO_DATABASE };
+  if (!isAuthConfigured()) {
+    return { ok: false, message: NOT_CONFIGURED };
   }
   if (!token) return { ok: false, message: "That verification link is not valid." };
 
@@ -183,7 +183,7 @@ export async function loginAction(
   _prev: FormState,
   formData: FormData
 ): Promise<FormState> {
-  if (!isDatabaseConfigured()) return { error: NO_DATABASE };
+  if (!isAuthConfigured()) return { error: NOT_CONFIGURED };
 
   const parsed = loginSchema.safeParse({
     email: formData.get("email"),
@@ -278,7 +278,7 @@ export async function requestPasswordResetAction(
   _prev: FormState,
   formData: FormData
 ): Promise<FormState> {
-  if (!isDatabaseConfigured()) return { error: NO_DATABASE };
+  if (!isAuthConfigured()) return { error: NOT_CONFIGURED };
 
   const parsed = requestResetSchema.safeParse({ email: formData.get("email") });
   if (!parsed.success) {
@@ -345,7 +345,7 @@ export async function resetPasswordAction(
   _prev: FormState,
   formData: FormData
 ): Promise<FormState> {
-  if (!isDatabaseConfigured()) return { error: NO_DATABASE };
+  if (!isAuthConfigured()) return { error: NOT_CONFIGURED };
 
   const parsed = resetPasswordSchema.safeParse({
     token: formData.get("token"),
