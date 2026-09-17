@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Instrument_Serif } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
 import "./globals.css";
@@ -10,51 +10,70 @@ const inter = Inter({
   display: "swap",
 });
 
-const instrumentSerif = Instrument_Serif({
-  variable: "--font-instrument-serif",
+const jakarta = Plus_Jakarta_Sans({
+  variable: "--font-jakarta",
   subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
+  weight: ["600", "700", "800"],
   display: "swap",
 });
 
-const siteUrl = "https://intellimindzfoundation.org";
+const siteUrl = "https://intellimindz.in";
+const description =
+  "Intellimindz Foundation is a Section 8 Company committed to building a digitally literate, financially aware and future-ready India through accessible learning in financial technology and emerging digital finance.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "IntelliMindz Foundation — FinTech Education for a Digital India",
-    template: "%s — IntelliMindz Foundation",
+    default: "Intellimindz Foundation — FinTech Education for a Digital Tomorrow",
+    template: "%s — Intellimindz Foundation",
   },
-  description:
-    "IntelliMindz Foundation is a Section 8 company building a digitally literate, financially aware and future-ready India through accessible FinTech education.",
+  description,
+  keywords: [
+    "FinTech education",
+    "digital payments",
+    "financial literacy India",
+    "Section 8 Company",
+    "AI in finance",
+    "cybersecurity in finance",
+  ],
   openGraph: {
-    title: "IntelliMindz Foundation — FinTech Education for a Digital India",
-    description:
-      "A Section 8 company building a digitally literate, financially aware and future-ready India through accessible FinTech education.",
+    title: "Intellimindz Foundation — FinTech Education for a Digital Tomorrow",
+    description,
     url: siteUrl,
-    siteName: "IntelliMindz Foundation",
+    siteName: "Intellimindz Foundation",
     locale: "en_IN",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "IntelliMindz Foundation — FinTech Education for a Digital India",
-    description:
-      "A Section 8 company building a digitally literate, financially aware and future-ready India through accessible FinTech education.",
+    title: "Intellimindz Foundation — FinTech Education for a Digital Tomorrow",
+    description,
   },
+};
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  name: "Intellimindz Foundation",
+  description,
+  url: siteUrl,
+  areaServed: "IN",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${instrumentSerif.variable} h-full antialiased`}
+      className={`${inter.variable} ${jakarta.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-paper text-ink">
+      <body className="flex min-h-full flex-col bg-surface text-ink">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-ink focus:px-4 focus:py-2 focus:text-paper"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-navy focus:px-5 focus:py-3 focus:font-semibold focus:text-white"
         >
           Skip to content
         </a>

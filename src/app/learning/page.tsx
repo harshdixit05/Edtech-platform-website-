@@ -2,83 +2,132 @@ import type { Metadata } from "next";
 import { SectionLabel } from "@/components/section-label";
 import { Reveal } from "@/components/reveal";
 import { Button } from "@/components/button";
-import { learningStages, learningExperience } from "@/lib/content";
+import { levels, formats, audiences, EXTERNAL } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Learning Model",
+  title: "Learning Levels",
   description:
-    "How IntelliMindz Foundation teaches FinTech: Discover, Build, Apply, Lead — an applied, India-specific learning journey.",
+    "A five-level learning ladder — Discovery, Fluency, Beginner, Intermediate and Advanced — designed as a stackable FinTech pathway.",
 };
-
-const stageDetail = [
-  "We start with the system, not the tool — how money actually moves before we touch a dashboard.",
-  "Every concept is followed immediately by a hands-on exercise modelled on real financial workflows.",
-  "Learners complete a project using real data, real constraints and real trade-offs.",
-  "The course ends when the capability leaves the room — into a workplace, a community, a next step.",
-];
 
 export default function LearningPage() {
   return (
     <>
-      <section className="mx-auto max-w-[1400px] px-6 pb-16 pt-16 md:px-10 md:pt-24">
+      <section className="relative overflow-hidden border-b border-line">
+        <div className="grid-bg" />
+        <div className="glow glow-teal -left-20 -top-24 h-96 w-96 opacity-45" />
+
+        <div className="relative mx-auto max-w-[1440px] px-6 pb-16 pt-14 md:px-10 md:pb-20 md:pt-20">
+          <Reveal>
+            <SectionLabel>Learning model</SectionLabel>
+            <h1 className="t-hero mt-7 max-w-[15ch] text-balance text-navy">
+              From quick discovery to advanced specialisation.
+            </h1>
+            <p className="t-lead mt-8 max-w-xl text-ink-soft">
+              The course architecture is designed as a clear learning ladder. Start at the
+              level that matches you today, and stack upward.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Ladder */}
+      <section className="mx-auto max-w-[1440px] px-6 py-20 md:px-10 md:py-28">
+        <div className="flex flex-col gap-px border border-line bg-line">
+          {levels.map((level, i) => (
+            <Reveal key={level.step} delay={i * 70}>
+              <article className="group grid grid-cols-1 gap-6 bg-white p-8 transition-colors duration-500 hover:bg-surface-2 md:grid-cols-[90px_1fr_1fr_1fr] md:items-center md:p-10">
+                <span className="font-display text-sm font-extrabold tracking-widest text-teal">
+                  {level.step}
+                </span>
+
+                <div>
+                  <h2 className="font-display text-3xl font-extrabold tracking-tight text-navy md:text-4xl">
+                    {level.name}
+                  </h2>
+                  <span
+                    aria-hidden
+                    className="mt-4 block h-[4px] bg-teal transition-all duration-700 group-hover:opacity-80"
+                    style={{ width: `${24 + i * 19}%` }}
+                  />
+                </div>
+
+                <div>
+                  <p className="t-eyebrow text-ink-faint">Commitment</p>
+                  <p className="mt-2 font-display text-xl font-extrabold tracking-tight text-navy">
+                    {level.hours}
+                  </p>
+                </div>
+
+                <div>
+                  <p className="t-eyebrow text-ink-faint">Outcome</p>
+                  <p className="mt-2 font-semibold text-ink">{level.outcome}</p>
+                  <p className="mt-1 text-sm text-ink-soft">For {level.audience.toLowerCase()}</p>
+                </div>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      {/* Formats */}
+      <section className="border-y border-line bg-surface-2">
+        <div className="mx-auto max-w-[1440px] px-6 py-20 md:px-10 md:py-28">
+          <Reveal>
+            <SectionLabel>Formats</SectionLabel>
+            <h2 className="t-h2 mt-6 max-w-[16ch] text-balance text-navy">
+              Learn the way that fits your week.
+            </h2>
+          </Reveal>
+
+          <div className="mt-14 grid grid-cols-1 gap-px border border-line bg-line md:grid-cols-3">
+            {formats.map((format, i) => (
+              <Reveal key={format.name} delay={i * 80}>
+                <article className="h-full bg-white p-9">
+                  <h3 className="t-h3 text-navy">{format.name}</h3>
+                  <span aria-hidden className="mt-5 block h-[2px] w-10 bg-teal" />
+                  <p className="mt-5 text-[0.9375rem] leading-relaxed text-ink-soft">
+                    {format.description}
+                  </p>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Audiences */}
+      <section className="mx-auto max-w-[1440px] px-6 py-20 md:px-10 md:py-28">
         <Reveal>
-          <SectionLabel>Learning Model</SectionLabel>
-          <h1 className="mt-4 max-w-2xl text-balance font-serif text-5xl leading-[1.05] text-ink md:text-6xl">
-            Discover. Build. Apply. Lead.
-          </h1>
-          <p className="mt-6 max-w-lg text-lg leading-relaxed text-ink-soft">
-            A four-stage journey, used across every course, from financial
-            literacy foundations to advanced credit analytics.
-          </p>
+          <SectionLabel>Who learns with us</SectionLabel>
+          <h2 className="t-h2 mt-6 max-w-[16ch] text-balance text-navy">
+            Built for every kind of learner.
+          </h2>
+          <ul className="mt-12 flex flex-wrap gap-3">
+            {audiences.map((audience) => (
+              <li
+                key={audience}
+                className="border border-line px-6 py-4 font-display text-[1.0625rem] font-bold tracking-tight text-navy transition-colors duration-300 hover:border-teal hover:text-teal"
+              >
+                {audience}
+              </li>
+            ))}
+          </ul>
         </Reveal>
       </section>
 
-      <section className="rule border-t border-line">
-        <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-10">
-          <div className="flex flex-col gap-16">
-            {learningStages.map((stage, i) => (
-              <Reveal key={stage.step} delay={i * 80}>
-                <div className="grid grid-cols-1 gap-4 border-t border-line-strong pt-6 lg:grid-cols-[80px_1fr]">
-                  <span className="font-serif text-3xl text-copper">{stage.step}</span>
-                  <div>
-                    <h2 className="font-serif text-3xl text-ink md:text-4xl">
-                      {stage.title}
-                    </h2>
-                    <p className="mt-3 max-w-xl text-base leading-relaxed text-ink-soft">
-                      {stageDetail[i]}
-                    </p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
+      <section className="surface-navy relative overflow-hidden">
+        <div className="grid-bg grid-bg-invert" />
+        <div className="relative mx-auto flex max-w-[1440px] flex-col items-start gap-8 px-6 py-20 md:px-10 md:py-24 lg:flex-row lg:items-center lg:justify-between">
+          <h2 className="t-h2 max-w-[18ch] text-balance">Find your starting level.</h2>
+          <div className="flex flex-wrap gap-4">
+            <Button href="/courses" variant="invert">
+              Explore domains
+            </Button>
+            <Button href={EXTERNAL.catalogue} variant="ghost">
+              Browse catalogue
+            </Button>
           </div>
-        </div>
-      </section>
-
-      <section className="rule border-t border-line bg-paper-dim">
-        <div className="mx-auto max-w-[1400px] px-6 py-24 md:px-10">
-          <Reveal>
-            <SectionLabel>What Every Course Includes</SectionLabel>
-          </Reveal>
-          <div className="mt-10 grid grid-cols-1 gap-x-10 gap-y-12 sm:grid-cols-2">
-            {learningExperience.map((item, i) => (
-              <Reveal key={item.title} delay={i * 80}>
-                <h3 className="font-serif text-2xl text-ink">{item.title}</h3>
-                <p className="mt-3 max-w-sm text-base leading-relaxed text-ink-soft">
-                  {item.description}
-                </p>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="rule border-t border-line">
-        <div className="mx-auto flex max-w-[1400px] flex-col items-start gap-6 px-6 py-20 md:px-10 lg:flex-row lg:items-center lg:justify-between">
-          <h2 className="max-w-lg font-serif text-3xl leading-tight text-ink md:text-4xl">
-            See the model applied in a real course.
-          </h2>
-          <Button href="/courses">Explore FinTech Courses</Button>
         </div>
       </section>
     </>

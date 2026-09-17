@@ -5,46 +5,55 @@ import { ContactForm } from "@/components/contact-form";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Get in touch with IntelliMindz Foundation.",
+  description: "Get in touch with Intellimindz Foundation.",
 };
 
 export default function ContactPage() {
   return (
-    <section className="mx-auto max-w-[1400px] px-6 pb-24 pt-16 md:px-10 md:pt-24">
-      <Reveal>
-        <SectionLabel>Talk to IntelliMindz</SectionLabel>
-        <h1 className="mt-4 max-w-2xl text-balance font-serif text-5xl leading-[1.05] text-ink md:text-6xl">
-          Let&rsquo;s talk.
-        </h1>
-      </Reveal>
+    <section className="relative overflow-hidden">
+      <div className="grid-bg" />
+      <div className="glow glow-teal -left-24 -top-24 h-96 w-96 opacity-40" />
 
-      <div className="mt-16 grid grid-cols-1 gap-16 border-t border-line pt-16 lg:grid-cols-[1fr_1.3fr]">
+      <div className="relative mx-auto max-w-[1440px] px-6 pb-24 pt-14 md:px-10 md:pb-32 md:pt-20">
         <Reveal>
-          <div className="flex flex-col gap-10">
-            <div>
-              <h2 className="text-xs font-medium uppercase tracking-[0.2em] text-ink-soft">
-                Email
-              </h2>
-              {/* Placeholder — replace with the Foundation's official contact address */}
-              <p className="mt-2 font-serif text-2xl text-ink">
-                hello@intellimindzfoundation.org
-              </p>
-            </div>
-            <div>
-              <h2 className="text-xs font-medium uppercase tracking-[0.2em] text-ink-soft">
-                For organizations
-              </h2>
-              <p className="mt-2 max-w-xs text-sm leading-relaxed text-ink-soft">
-                Building a program for your institution? Tell us about your
-                learners and we&rsquo;ll get back within a few business days.
-              </p>
-            </div>
-          </div>
+          <SectionLabel>Contact</SectionLabel>
+          <h1 className="t-hero mt-7 text-navy">Let&rsquo;s talk.</h1>
         </Reveal>
 
-        <Reveal delay={100}>
-          <ContactForm />
-        </Reveal>
+        <div className="mt-16 grid grid-cols-1 gap-16 border-t border-line pt-16 lg:grid-cols-[0.8fr_1.2fr]">
+          <Reveal>
+            <div className="flex flex-col gap-11">
+              <div>
+                <p className="t-eyebrow text-ink-faint">Email</p>
+                {/* Placeholder — replace with the Foundation's official address */}
+                <a
+                  href="mailto:hello@intellimindz.in"
+                  className="link-underline mt-3 inline-block font-display text-xl font-extrabold tracking-tight text-navy"
+                >
+                  hello@intellimindz.in
+                </a>
+              </div>
+              <div>
+                <p className="t-eyebrow text-ink-faint">Learners</p>
+                <p className="mt-3 max-w-xs text-ink-soft">
+                  Not sure which level to start at? Tell us your background and we&rsquo;ll
+                  point you to the right course.
+                </p>
+              </div>
+              <div>
+                <p className="t-eyebrow text-ink-faint">Organisations</p>
+                <p className="mt-3 max-w-xs text-ink-soft">
+                  Building a programme for your institution or CSR mandate? Tell us about
+                  your learners.
+                </p>
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal delay={100}>
+            <ContactForm />
+          </Reveal>
+        </div>
       </div>
     </section>
   );

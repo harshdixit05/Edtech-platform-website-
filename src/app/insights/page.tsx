@@ -6,7 +6,7 @@ import { insights } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Insights",
   description:
-    "Editorial writing on FinTech, financial inclusion, policy and technology from IntelliMindz Foundation.",
+    "Plain-language writing on FinTech, digital payments, open finance and AI in finance from Intellimindz Foundation.",
 };
 
 function formatDate(iso: string) {
@@ -22,51 +22,55 @@ export default function InsightsPage() {
 
   return (
     <>
-      <section className="mx-auto max-w-[1400px] px-6 pb-16 pt-16 md:px-10 md:pt-24">
-        <Reveal>
-          <SectionLabel>Insights</SectionLabel>
-          <h1 className="mt-4 max-w-2xl text-balance font-serif text-5xl leading-[1.05] text-ink md:text-6xl">
-            Notes on FinTech, plainly written.
-          </h1>
-        </Reveal>
+      <section className="relative overflow-hidden border-b border-line">
+        <div className="grid-bg" />
+        <div className="glow glow-teal -right-24 -top-24 h-96 w-96 opacity-40" />
+
+        <div className="relative mx-auto max-w-[1440px] px-6 pb-16 pt-14 md:px-10 md:pb-20 md:pt-20">
+          <Reveal>
+            <SectionLabel>Insights</SectionLabel>
+            <h1 className="t-hero mt-7 max-w-[13ch] text-balance text-navy">
+              FinTech, plainly written.
+            </h1>
+          </Reveal>
+        </div>
       </section>
 
-      <section className="rule border-t border-line">
-        <div className="mx-auto max-w-[1400px] px-6 py-16 md:px-10">
-          <Reveal>
-            <article className="border-t border-line-strong pt-8">
-              <div className="flex items-center gap-4 text-xs font-medium uppercase tracking-[0.2em] text-teal">
-                <span>{lead.category}</span>
-                <span className="text-ink-soft">{formatDate(lead.date)}</span>
-              </div>
-              <h2 className="mt-4 max-w-3xl font-serif text-4xl leading-tight text-ink md:text-5xl">
-                {lead.title}
-              </h2>
-              <p className="mt-4 max-w-2xl text-lg leading-relaxed text-ink-soft">
-                {lead.excerpt}
-              </p>
-            </article>
-          </Reveal>
+      <section className="mx-auto max-w-[1440px] px-6 py-20 md:px-10 md:py-28">
+        <Reveal>
+          <article className="group border-t-2 border-navy pt-10">
+            <div className="flex flex-wrap items-center gap-5">
+              <span className="t-eyebrow text-teal">{lead.category}</span>
+              <span className="text-sm text-ink-faint">{formatDate(lead.date)}</span>
+            </div>
+            <h2 className="t-h2 mt-6 max-w-[20ch] text-balance text-navy">{lead.title}</h2>
+            <p className="t-lead mt-6 max-w-2xl text-ink-soft">{lead.excerpt}</p>
+          </article>
+        </Reveal>
 
-          <div className="mt-16 grid grid-cols-1 gap-x-10 gap-y-14 border-t border-line pt-14 md:grid-cols-3">
-            {rest.map((article, i) => (
-              <Reveal key={article.slug} delay={i * 80}>
-                <article>
-                  <div className="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-teal">
-                    <span>{article.category}</span>
-                  </div>
-                  <p className="mt-2 text-xs text-ink-soft">{formatDate(article.date)}</p>
-                  <h3 className="mt-3 font-serif text-2xl leading-snug text-ink">
-                    {article.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-ink-soft">
-                    {article.excerpt}
-                  </p>
-                </article>
-              </Reveal>
-            ))}
-          </div>
+        <div className="mt-20 grid grid-cols-1 gap-px border border-line bg-line md:grid-cols-2">
+          {rest.map((article, i) => (
+            <Reveal key={article.slug} delay={i * 80}>
+              <article className="card-lift h-full border border-transparent bg-white p-9">
+                <div className="flex flex-wrap items-center gap-4">
+                  <span className="t-eyebrow text-teal">{article.category}</span>
+                  <span className="text-sm text-ink-faint">{formatDate(article.date)}</span>
+                </div>
+                <h3 className="mt-5 font-display text-2xl font-extrabold leading-snug tracking-tight text-navy">
+                  {article.title}
+                </h3>
+                <p className="mt-4 text-[0.9375rem] leading-relaxed text-ink-soft">
+                  {article.excerpt}
+                </p>
+              </article>
+            </Reveal>
+          ))}
         </div>
+
+        {/* Placeholder editorial — replace with the Foundation's published writing */}
+        <p className="mt-14 border-t border-line pt-6 text-[0.8125rem] text-ink-faint">
+          More writing is published as programmes run.
+        </p>
       </section>
     </>
   );

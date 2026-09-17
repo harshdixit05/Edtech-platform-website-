@@ -1,234 +1,277 @@
 /**
- * Placeholder content for programs, insights and focus areas.
- * Replace with real curriculum / editorial content before launch —
- * nothing here is a fabricated claim (no stats, partners or outcomes),
- * it is structural placeholder copy only.
+ * Site content. Programme names, descriptions and learning levels come from
+ * the Foundation's own copy. Nothing here asserts statistics, partnerships,
+ * endorsements or outcomes that have not been supplied.
  */
 
-export type Course = {
+export const EXTERNAL = {
+  catalogue: "https://intellimindz.in/Products",
+  courses: "https://intellimindz.in/courses",
+};
+
+/* --- What the Foundation does --------------------------------- */
+
+export const pillars = [
+  {
+    title: "FinTech Education",
+    description:
+      "Industry-relevant learning across digital payments, AI, data, cybersecurity and regulation.",
+  },
+  {
+    title: "Financial Inclusion",
+    description:
+      "Digital financial literacy that lets learners and communities participate confidently in finance.",
+  },
+  {
+    title: "Future-ready Skills",
+    description:
+      "Job-ready capability for students, professionals, educators, entrepreneurs and public-sector teams.",
+  },
+  {
+    title: "Nation Building",
+    description:
+      "An innovative, inclusive and self-reliant digital economy, built through knowledge and partnerships.",
+  },
+];
+
+/* --- National alignment ---------------------------------------- */
+
+export const initiatives = [
+  {
+    name: "Digital India",
+    description:
+      "Digital empowerment, accessible knowledge and participation in the digital economy.",
+  },
+  {
+    name: "Digital Finance",
+    description: "Understanding of digital payments, financial technology, trust and inclusion.",
+  },
+  {
+    name: "Skill India",
+    description:
+      "Practical, future-ready capability for employability, professional growth and lifelong learning.",
+  },
+  {
+    name: "Startup India",
+    description:
+      "Innovation, entrepreneurship and a stronger pipeline of FinTech talent and problem-solvers.",
+  },
+  {
+    name: "Atmanirbhar Bharat",
+    description:
+      "Domestic capability, digital resilience and self-reliance through education and innovation.",
+  },
+];
+
+export const alignmentPoints = [
+  "Bridging the digital divide through accessible education",
+  "Collaborating with academia, industry and ecosystem partners",
+  "Driving measurable learning and community impact",
+  "Building a financially aware, inclusive and empowered India",
+];
+
+export const ALIGNMENT_DISCLAIMER =
+  "References to national initiatives indicate thematic alignment with their publicly stated objectives and do not imply Government endorsement, accreditation or formal partnership.";
+
+/* --- Learning domains ------------------------------------------ */
+
+export type Domain = {
   slug: string;
   name: string;
-  level: "Foundation" | "Intermediate" | "Advanced";
-  duration: string;
-  domain: string;
-  summary: string;
-  outline: string[];
+  short: string;
+  description: string;
+  topics: string[];
 };
 
-export const featuredCourse: Course = {
-  slug: "digital-payments-foundations",
-  name: "Digital Payments Foundations",
-  level: "Foundation",
-  duration: "6 weeks",
-  domain: "Payments & Digital Finance",
-  summary:
-    "How UPI, wallets and card rails actually move money — and how to reason about risk, cost and reliability in a payment system.",
-  outline: [
-    "Payment rails and settlement in the Indian context",
-    "UPI architecture and interoperability",
-    "Fraud, risk and reconciliation basics",
-    "Applied project: mapping a real payment flow",
-  ],
-};
-
-export const courses: Course[] = [
+export const domains: Domain[] = [
   {
-    slug: "financial-literacy-foundations",
-    name: "Financial Literacy Foundations",
-    level: "Foundation",
-    duration: "4 weeks",
-    domain: "Financial Inclusion",
-    summary:
-      "Core personal finance and digital-money concepts for first-time learners.",
-    outline: [
-      "Savings, credit and digital banking basics",
-      "Reading a bank and UPI statement",
-      "Recognising fraud and scams",
-      "Building a personal financial plan",
-    ],
+    slug: "fintech-core",
+    name: "FinTech Core",
+    short: "Foundations",
+    description: "Digital finance, open banking, neo-banking and FinTech business models.",
+    topics: ["Digital finance models", "Open banking", "Neo-banking", "Business models"],
   },
   {
-    slug: "open-banking-and-apis",
-    name: "Open Banking & APIs",
-    level: "Intermediate",
-    duration: "8 weeks",
-    domain: "Open Finance",
-    summary:
-      "Account Aggregator, consent architecture and the API layer connecting India's financial system.",
-    outline: [
-      "Consent-based data sharing models",
-      "Account Aggregator ecosystem",
-      "API security fundamentals",
-      "Applied project: a consent-flow prototype",
-    ],
+    slug: "digital-payments",
+    name: "Digital Payments",
+    short: "Payments",
+    description: "UPI, India Stack, CBDCs, account aggregators and payment infrastructure.",
+    topics: ["UPI & India Stack", "CBDC", "Account Aggregator", "Payment infrastructure"],
   },
   {
-    slug: "regtech-and-compliance",
-    name: "RegTech & Compliance",
-    level: "Intermediate",
-    duration: "6 weeks",
-    domain: "Regulation & Risk",
-    summary:
-      "How compliance, KYC and reporting are increasingly automated across financial institutions.",
-    outline: [
-      "KYC/AML fundamentals",
-      "Regulatory reporting automation",
-      "Compliance-by-design principles",
-      "Case study: a RegTech implementation",
-    ],
+    slug: "ai-in-finance",
+    name: "AI in Finance",
+    short: "AI",
+    description: "AI, ML and GenAI for credit, risk, fraud detection and decision-making.",
+    topics: ["Credit scoring", "Risk modelling", "Fraud detection", "GenAI applications"],
   },
   {
-    slug: "digital-lending-analytics",
-    name: "Digital Lending & Credit Analytics",
-    level: "Advanced",
-    duration: "8 weeks",
-    domain: "Lending & Credit",
-    summary:
-      "Alternate credit scoring, underwriting models and the mechanics of digital lending platforms.",
-    outline: [
-      "Alternate data and credit scoring",
-      "Underwriting model fundamentals",
-      "Portfolio risk and collections",
-      "Applied project: a scoring model walkthrough",
-    ],
+    slug: "data-science-in-finance",
+    name: "Data Science in Finance",
+    short: "Data",
+    description: "Financial analytics, predictive modelling and decision intelligence.",
+    topics: ["Financial analytics", "Predictive models", "Decision intelligence", "Visualisation"],
   },
   {
     slug: "cybersecurity-in-finance",
     name: "Cybersecurity in Finance",
-    level: "Advanced",
-    duration: "6 weeks",
-    domain: "Security & Trust",
-    summary:
-      "Threat models specific to financial systems, and the controls that keep digital finance trustworthy.",
-    outline: [
-      "Threat modelling for financial platforms",
-      "Authentication and fraud controls",
-      "Incident response fundamentals",
-      "Case study: a real-world breach, dissected",
-    ],
+    short: "Security",
+    description: "Digital trust, identity security, fraud prevention and secure systems.",
+    topics: ["Digital trust", "Identity security", "Fraud prevention", "Secure architecture"],
+  },
+  {
+    slug: "regtech-suptech",
+    name: "RegTech / SupTech",
+    short: "Regulation",
+    description: "Compliance automation, KYC, monitoring and governance systems.",
+    topics: ["Compliance automation", "KYC & AML", "Monitoring", "Governance"],
+  },
+  {
+    slug: "blockchain-dlt",
+    name: "Blockchain & DLT",
+    short: "Blockchain",
+    description: "Blockchain, smart contracts, tokenisation, CBDCs and enterprise DLT.",
+    topics: ["Smart contracts", "Tokenisation", "CBDC rails", "Enterprise DLT"],
+  },
+  {
+    slug: "sustainable-finance",
+    name: "Sustainable Finance",
+    short: "Sustainability",
+    description: "Climate finance, green FinTech, ESG and financial inclusion.",
+    topics: ["Climate finance", "Green FinTech", "ESG reporting", "Inclusive finance"],
+  },
+  {
+    slug: "insurtech",
+    name: "InsurTech",
+    short: "Insurance",
+    description: "Digital insurance distribution, underwriting technology and claims automation.",
+    topics: ["Digital distribution", "Underwriting tech", "Claims automation", "Embedded cover"],
+  },
+  {
+    slug: "wealthtech",
+    name: "WealthTech",
+    short: "Wealth",
+    description: "Digital investing, advisory platforms and retail participation in markets.",
+    topics: ["Digital investing", "Advisory platforms", "Portfolio tools", "Retail markets"],
   },
 ];
 
-export const focusAreas = [
-  {
-    key: "payments",
-    title: "Digital Payments",
-    description:
-      "UPI, wallets, card networks and the settlement systems moving India's money.",
-  },
-  {
-    key: "inclusion",
-    title: "Financial Inclusion",
-    description:
-      "Literacy and access programs that bring underserved communities into the formal financial system.",
-  },
-  {
-    key: "open-finance",
-    title: "Open Banking",
-    description:
-      "Consent-based data sharing, Account Aggregator and the API layer of modern finance.",
-  },
-  {
-    key: "lending",
-    title: "Digital Lending",
-    description:
-      "Alternate credit data, underwriting and the platforms reshaping access to credit.",
-  },
-  {
-    key: "regtech",
-    title: "RegTech",
-    description:
-      "Compliance, KYC and regulatory reporting, increasingly automated at scale.",
-  },
-  {
-    key: "security",
-    title: "Security & Trust",
-    description:
-      "The controls, standards and habits that keep digital finance safe to use.",
-  },
-];
+/* --- Learning ladder -------------------------------------------- */
 
-export const learningStages = [
+export const levels = [
   {
     step: "01",
-    title: "Discover",
-    description: "Understand the system before the tool — how digital finance actually works.",
+    name: "Discovery",
+    hours: "1–5 hours",
+    outcome: "Awareness and quick exposure",
+    audience: "Curious starters",
   },
   {
     step: "02",
-    title: "Build",
-    description: "Work through applied exercises modelled on real financial workflows.",
+    name: "Fluency",
+    hours: "3–10 hours",
+    outcome: "Conceptual vocabulary and confidence",
+    audience: "Cross-functional learners",
   },
   {
     step: "03",
-    title: "Apply",
-    description: "Complete a project using real data and real constraints.",
+    name: "Beginner",
+    hours: "8–20 hours",
+    outcome: "Foundational skill development",
+    audience: "Students and early professionals",
   },
   {
     step: "04",
-    title: "Lead",
-    description: "Carry the capability into your workplace or community.",
+    name: "Intermediate",
+    hours: "15–40 hours",
+    outcome: "Applied tools and role readiness",
+    audience: "Working professionals",
+  },
+  {
+    step: "05",
+    name: "Advanced",
+    hours: "30+ hours",
+    outcome: "Deep specialisation and leadership",
+    audience: "Specialists and decision-makers",
   },
 ];
 
-export const learningExperience = [
+export const catalogueHighlights = [
+  "8 FinTech domains",
+  "Discovery to Advanced levels",
+  "Free & Paid programmes",
+  "Self-paced, Live & Hybrid",
+];
+
+/* --- Support --------------------------------------------------- */
+
+export const supportPoints = [
+  "Section 80G eligible",
+  "Transparent fund allocation",
+  "Secure contribution process",
+];
+
+export const DONATION_DISCLAIMER =
+  "Donations are eligible for tax exemption under Section 80G, subject to applicable provisions.";
+
+/* --- Who learns with us ---------------------------------------- */
+
+export const audiences = [
+  "Students",
+  "Working professionals",
+  "Educators",
+  "Entrepreneurs",
+  "Public-sector stakeholders",
+  "Community learners",
+];
+
+export const formats = [
   {
-    title: "Practitioner-led sessions",
-    description: "Taught by people who work in payments, banking and financial technology.",
+    name: "Self-paced",
+    description: "Learn on your own schedule, with lifetime access to the material.",
   },
   {
-    title: "Applied projects",
-    description: "Every course ends with something built, not just watched.",
+    name: "Live",
+    description: "Scheduled sessions with practitioners, questions answered in the room.",
   },
   {
-    title: "India-specific context",
-    description: "UPI, Aadhaar, Account Aggregator — the rails learners will actually use.",
-  },
-  {
-    title: "Case-based learning",
-    description: "Real systems and real failures, examined in detail.",
+    name: "Hybrid",
+    description: "Self-paced foundations paired with live applied workshops.",
   },
 ];
+
+/* --- Insights (placeholder editorial — replace before launch) --- */
 
 export type Insight = {
   slug: string;
   title: string;
-  category: "FinTech" | "Financial Inclusion" | "Policy" | "Technology";
+  category: string;
   date: string;
   excerpt: string;
 };
 
 export const insights: Insight[] = [
   {
-    slug: "upi-decade",
-    title: "What a decade of UPI teaches about designing for scale",
-    category: "FinTech",
+    slug: "upi-at-scale",
+    title: "What UPI teaches about building for a billion people",
+    category: "Digital Payments",
     date: "2026-08-14",
     excerpt:
       "Interoperability, not novelty, is what made India's payment rail work at population scale.",
   },
   {
     slug: "account-aggregator-explained",
-    title: "The Account Aggregator framework, explained without the jargon",
-    category: "Policy",
+    title: "The Account Aggregator framework, without the jargon",
+    category: "Open Finance",
     date: "2026-07-02",
     excerpt:
-      "A plain-language walkthrough of how consent-based data sharing actually moves between institutions.",
+      "A plain-language walkthrough of how consent-based data sharing moves between institutions.",
   },
   {
-    slug: "credit-for-the-new-to-credit",
-    title: "Building credit models for people with no credit history",
-    category: "Financial Inclusion",
+    slug: "ai-credit-decisions",
+    title: "When a model decides who gets credit",
+    category: "AI in Finance",
     date: "2026-06-19",
-    excerpt:
-      "Alternate data sources are only useful if the model built on them is honest about its limits.",
-  },
-  {
-    slug: "securing-the-last-mile",
-    title: "Securing the last mile of digital payments",
-    category: "Technology",
-    date: "2026-05-08",
-    excerpt:
-      "Most fraud in digital finance happens at the edges of the system, not the core.",
+    excerpt: "Alternate data is only useful if the model built on it is honest about its limits.",
   },
 ];

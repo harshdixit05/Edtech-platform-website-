@@ -2,88 +2,140 @@ import type { Metadata } from "next";
 import { SectionLabel } from "@/components/section-label";
 import { Reveal } from "@/components/reveal";
 import { Button } from "@/components/button";
-import { CourseList } from "@/components/course-list";
-import { featuredCourse, courses } from "@/lib/content";
+import { CourseExplorer } from "@/components/course-explorer";
+import { Marquee } from "@/components/marquee";
+import { domains, formats, levels, EXTERNAL } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "FinTech Courses",
   description:
-    "Foundation to advanced courses in digital payments, financial inclusion, open banking, lending and RegTech — taught for the Indian context.",
+    "Ten FinTech domains — payments, AI in finance, cybersecurity, RegTech, blockchain, InsurTech, WealthTech and more — from Discovery to Advanced levels.",
 };
 
 export default function CoursesPage() {
   return (
     <>
-      <section className="mx-auto max-w-[1400px] px-6 pb-16 pt-16 md:px-10 md:pt-24">
-        <Reveal>
-          <SectionLabel>Courses</SectionLabel>
-          <h1 className="mt-4 max-w-2xl text-balance font-serif text-5xl leading-[1.05] text-ink md:text-6xl">
-            FinTech courses, built for where India is headed.
-          </h1>
-          <p className="mt-6 max-w-lg text-lg leading-relaxed text-ink-soft">
-            Foundation to advanced. Every course is built around a single
-            question: what does this look like in practice?
-          </p>
-        </Reveal>
-      </section>
+      <section className="relative overflow-hidden border-b border-line">
+        <div className="grid-bg" />
+        <div className="glow glow-teal -right-24 -top-28 h-96 w-96 opacity-50" />
 
-      <section className="rule border-t border-line">
-        <div className="mx-auto max-w-[1400px] px-6 py-16 md:px-10">
+        <div className="relative mx-auto max-w-[1440px] px-6 pb-16 pt-14 md:px-10 md:pb-20 md:pt-20">
           <Reveal>
-            <SectionLabel>Featured</SectionLabel>
-            <div className="mt-6 grid grid-cols-1 gap-10 lg:grid-cols-[1fr_1fr] lg:items-end">
-              <h2 className="font-serif text-4xl leading-tight text-ink md:text-5xl">
-                {featuredCourse.name}
-              </h2>
-              <p className="text-lg leading-relaxed text-ink-soft">
-                {featuredCourse.summary}
-              </p>
+            <SectionLabel>Courses</SectionLabel>
+            <h1 className="t-hero mt-7 max-w-[14ch] text-balance text-navy">
+              Ten domains. Five levels. One pathway.
+            </h1>
+            <p className="t-lead mt-8 max-w-xl text-ink-soft">
+              Pick a domain, start where you are, and stack your way up. Free and paid
+              programmes, self-paced, live or hybrid.
+            </p>
+            <div className="mt-10 flex flex-wrap gap-4">
+              <Button href={EXTERNAL.catalogue}>Browse the full catalogue</Button>
+              <Button href="/learning" variant="outline">
+                See how levels work
+              </Button>
             </div>
-            <ul className="mt-8 grid grid-cols-1 gap-x-8 gap-y-2 sm:grid-cols-2">
-              {featuredCourse.outline.map((item) => (
-                <li key={item} className="flex gap-3 text-sm text-ink">
-                  <span aria-hidden className="text-copper">
-                    —
-                  </span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <dl className="mt-8 flex flex-wrap gap-10 text-sm">
-              <div>
-                <dt className="text-ink-soft">Level</dt>
-                <dd className="mt-1 font-medium text-ink">{featuredCourse.level}</dd>
-              </div>
-              <div>
-                <dt className="text-ink-soft">Duration</dt>
-                <dd className="mt-1 font-medium text-ink">{featuredCourse.duration}</dd>
-              </div>
-              <div>
-                <dt className="text-ink-soft">Domain</dt>
-                <dd className="mt-1 font-medium text-ink">{featuredCourse.domain}</dd>
-              </div>
-            </dl>
           </Reveal>
         </div>
       </section>
 
-      <section className="mx-auto max-w-[1400px] px-6 py-16 md:px-10">
+      <section className="border-b border-line bg-surface-2">
+        <Marquee
+          items={[...levels.map((l) => l.name), "Free & Paid", "Self-paced", "Live", "Hybrid"]}
+        />
+      </section>
+
+      {/* Explorer */}
+      <section className="mx-auto max-w-[1440px] px-6 py-20 md:px-10 md:py-28">
         <Reveal>
-          <SectionLabel>All Courses</SectionLabel>
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <div>
+              <SectionLabel>Explore by domain</SectionLabel>
+              <h2 className="t-h2 mt-6 max-w-[16ch] text-balance text-navy">
+                Choose where you want to build.
+              </h2>
+            </div>
+            <p className="max-w-xs text-ink-soft">
+              Select a domain to see what it covers and which levels are available.
+            </p>
+          </div>
         </Reveal>
-        <div className="mt-6">
-          <CourseList courses={courses} />
+
+        <Reveal delay={100}>
+          <div className="mt-14">
+            <CourseExplorer />
+          </div>
+        </Reveal>
+      </section>
+
+      {/* All domains overview */}
+      <section className="border-y border-line bg-surface-2">
+        <div className="mx-auto max-w-[1440px] px-6 py-20 md:px-10 md:py-28">
+          <Reveal>
+            <SectionLabel>All categories</SectionLabel>
+            <h2 className="t-h2 mt-6 max-w-[16ch] text-balance text-navy">
+              The full FinTech map.
+            </h2>
+          </Reveal>
+
+          <div className="mt-14 grid grid-cols-1 gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-5">
+            {domains.map((domain, i) => (
+              <Reveal key={domain.slug} delay={i * 50}>
+                <article className="card-lift group h-full border border-transparent bg-white p-7">
+                  <span className="t-eyebrow text-teal">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="mt-4 font-display text-[1.1875rem] font-extrabold leading-tight tracking-tight text-navy">
+                    {domain.name}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-ink-soft">
+                    {domain.description}
+                  </p>
+                </article>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section className="rule border-t border-line">
-        <div className="mx-auto flex max-w-[1400px] flex-col items-start gap-6 px-6 py-20 md:px-10 lg:flex-row lg:items-center lg:justify-between">
-          <h2 className="max-w-lg font-serif text-3xl leading-tight text-ink md:text-4xl">
-            Not sure where to start? Talk to us.
+      {/* Formats */}
+      <section className="mx-auto max-w-[1440px] px-6 py-20 md:px-10 md:py-28">
+        <Reveal>
+          <SectionLabel>How you learn</SectionLabel>
+          <h2 className="t-h2 mt-6 max-w-[16ch] text-balance text-navy">
+            Three formats, one standard.
           </h2>
-          <Button href="/contact" variant="ghost">
-            Talk to IntelliMindz
-          </Button>
+        </Reveal>
+
+        <div className="mt-14 grid grid-cols-1 gap-px border border-line bg-line md:grid-cols-3">
+          {formats.map((format, i) => (
+            <Reveal key={format.name} delay={i * 80}>
+              <article className="h-full bg-white p-9">
+                <h3 className="t-h3 text-navy">{format.name}</h3>
+                <span aria-hidden className="mt-5 block h-[2px] w-10 bg-teal" />
+                <p className="mt-5 text-[0.9375rem] leading-relaxed text-ink-soft">
+                  {format.description}
+                </p>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      <section className="surface-navy relative overflow-hidden">
+        <div className="grid-bg grid-bg-invert" />
+        <div className="relative mx-auto flex max-w-[1440px] flex-col items-start gap-8 px-6 py-20 md:px-10 md:py-24 lg:flex-row lg:items-center lg:justify-between">
+          <h2 className="t-h2 max-w-[18ch] text-balance">
+            Ready to find the right course?
+          </h2>
+          <div className="flex flex-wrap gap-4">
+            <Button href={EXTERNAL.catalogue} variant="invert">
+              Browse the catalogue
+            </Button>
+            <Button href="/contact" variant="ghost">
+              Talk to us
+            </Button>
+          </div>
         </div>
       </section>
     </>

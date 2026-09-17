@@ -6,29 +6,28 @@ import { Button } from "@/components/button";
 export const metadata: Metadata = {
   title: "Partnerships",
   description:
-    "Partner with IntelliMindz Foundation to bring FinTech and digital finance literacy to your organization or community.",
+    "Partner with Intellimindz Foundation — CSR collaborations, academic partnerships, community programmes and institutional FinTech capability building.",
 };
 
 const partners = [
   {
     title: "Corporates & CSR",
     description:
-      "Fund or co-design FinTech literacy programs as part of your CSR mandate under the Companies Act.",
+      "Fund or co-design FinTech literacy programmes as part of your CSR mandate under the Companies Act.",
   },
   {
-    title: "Government & Public Bodies",
+    title: "Academic institutions",
     description:
-      "Deliver digital finance literacy at scale through district, state or national initiatives.",
+      "Add applied FinTech modules alongside commerce, finance, management or computer science programmes.",
   },
   {
-    title: "NGOs & Community Organizations",
+    title: "Government & public bodies",
     description:
-      "Bring structured FinTech curriculum to the communities you already serve.",
+      "Deliver digital finance literacy at scale through district, state or national programmes.",
   },
   {
-    title: "Academic Institutions",
-    description:
-      "Add applied FinTech modules alongside existing commerce, finance or computer science programs.",
+    title: "NGOs & community organisations",
+    description: "Bring structured FinTech curriculum to the communities you already serve.",
   },
 ];
 
@@ -36,85 +35,105 @@ const process = [
   {
     step: "01",
     title: "Understand",
-    description: "We start with your learners, not our catalog — who they are and what they need.",
+    description: "We start with your learners, not our catalogue — who they are and what they need.",
   },
   {
     step: "02",
     title: "Design",
-    description: "A program is scoped around outcomes, timeline and delivery format.",
+    description: "A programme scoped around outcomes, timeline, level and delivery format.",
   },
   {
     step: "03",
     title: "Deliver",
-    description: "Practitioner-led sessions, applied projects and measurable milestones.",
+    description: "Practitioner-led sessions, applied projects and clear milestones.",
   },
 ];
 
 export default function PartnershipsPage() {
   return (
     <>
-      <section className="mx-auto max-w-[1400px] px-6 pb-16 pt-16 md:px-10 md:pt-24">
-        <Reveal>
-          <SectionLabel>Partnerships</SectionLabel>
-          <h1 className="mt-4 max-w-2xl text-balance font-serif text-5xl leading-[1.05] text-ink md:text-6xl">
-            Bring FinTech literacy to your organization.
-          </h1>
-          <p className="mt-6 max-w-lg text-lg leading-relaxed text-ink-soft">
-            As a Section 8 company, we design and deliver FinTech capability
-            programs with corporates, government bodies, NGOs and academic
-            institutions.
-          </p>
-          <div className="mt-10">
-            <Button href="/contact">Build a Program</Button>
-          </div>
-        </Reveal>
-      </section>
+      <section className="relative overflow-hidden border-b border-line">
+        <div className="grid-bg" />
+        <div className="glow glow-teal -left-20 -top-24 h-96 w-96 opacity-45" />
 
-      <section className="rule border-t border-line">
-        <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-10">
+        <div className="relative mx-auto max-w-[1440px] px-6 pb-16 pt-14 md:px-10 md:pb-20 md:pt-20">
           <Reveal>
-            <SectionLabel>Who We Work With</SectionLabel>
+            <SectionLabel>Partnerships</SectionLabel>
+            <h1 className="t-hero mt-7 max-w-[14ch] text-balance text-navy">
+              Build FinTech capability, together.
+            </h1>
+            <p className="t-lead mt-8 max-w-xl text-ink-soft">
+              We collaborate with academia, industry and ecosystem partners to design and
+              deliver FinTech education where it is needed most.
+            </p>
+            <div className="mt-10">
+              <Button href="/contact">Build a programme</Button>
+            </div>
           </Reveal>
-          <div className="mt-10 grid grid-cols-1 gap-x-10 gap-y-12 sm:grid-cols-2">
-            {partners.map((p, i) => (
-              <Reveal key={p.title} delay={i * 80}>
-                <h2 className="font-serif text-2xl text-ink">{p.title}</h2>
-                <p className="mt-3 max-w-sm text-base leading-relaxed text-ink-soft">
-                  {p.description}
-                </p>
-              </Reveal>
-            ))}
-          </div>
         </div>
       </section>
 
-      <section className="rule border-t border-line bg-paper-dim">
-        <div className="mx-auto max-w-[1400px] px-6 py-24 md:px-10">
+      <section className="mx-auto max-w-[1440px] px-6 py-20 md:px-10 md:py-28">
+        <Reveal>
+          <SectionLabel>Who we work with</SectionLabel>
+          <h2 className="t-h2 mt-6 max-w-[16ch] text-balance text-navy">
+            Four kinds of partner.
+          </h2>
+        </Reveal>
+
+        <div className="mt-14 grid grid-cols-1 gap-px border border-line bg-line sm:grid-cols-2">
+          {partners.map((partner, i) => (
+            <Reveal key={partner.title} delay={i * 70}>
+              <article className="card-lift h-full border border-transparent bg-white p-9">
+                <h3 className="t-h3 text-navy">{partner.title}</h3>
+                <span aria-hidden className="mt-5 block h-[2px] w-10 bg-teal" />
+                <p className="mt-5 max-w-md text-[0.9375rem] leading-relaxed text-ink-soft">
+                  {partner.description}
+                </p>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      <section className="surface-navy relative overflow-hidden">
+        <div className="grid-bg grid-bg-invert" />
+        <div className="glow glow-teal right-0 top-10 h-80 w-80 opacity-25" />
+
+        <div className="relative mx-auto max-w-[1440px] px-6 py-20 md:px-10 md:py-28">
           <Reveal>
-            <SectionLabel>How It Works</SectionLabel>
+            <SectionLabel invert>How it works</SectionLabel>
+            <h2 className="t-h2 mt-6 max-w-[16ch] text-balance">Three steps to a programme.</h2>
           </Reveal>
-          <div className="mt-10 grid grid-cols-1 gap-10 md:grid-cols-3">
+
+          <div className="mt-14 grid grid-cols-1 gap-px bg-white/10 md:grid-cols-3">
             {process.map((step, i) => (
-              <Reveal key={step.step} delay={i * 100}>
-                <div className="border-t border-line-strong pt-6">
-                  <span className="font-serif text-lg text-copper">{step.step}</span>
-                  <h3 className="mt-3 font-serif text-2xl text-ink">{step.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-ink-soft">
+              <Reveal key={step.step} delay={i * 80}>
+                <article className="h-full bg-navy-ink p-9 transition-colors duration-500 hover:bg-navy">
+                  <span className="font-display text-sm font-extrabold tracking-widest text-teal">
+                    {step.step}
+                  </span>
+                  <h3 className="mt-6 font-display text-2xl font-extrabold tracking-tight text-white">
+                    {step.title}
+                  </h3>
+                  <p className="mt-4 text-[0.9375rem] leading-relaxed text-white/60">
                     {step.description}
                   </p>
-                </div>
+                </article>
               </Reveal>
             ))}
           </div>
-        </div>
-      </section>
 
-      <section className="rule border-t border-line">
-        <div className="mx-auto flex max-w-[1400px] flex-col items-start gap-6 px-6 py-20 md:px-10 lg:flex-row lg:items-center lg:justify-between">
-          <h2 className="max-w-lg font-serif text-3xl leading-tight text-ink md:text-4xl">
-            Tell us about your learners. We&rsquo;ll design around them.
-          </h2>
-          <Button href="/contact">Talk to IntelliMindz</Button>
+          <Reveal>
+            <div className="mt-14 flex flex-wrap gap-4">
+              <Button href="/contact" variant="invert">
+                Talk to us
+              </Button>
+              <Button href="/support" variant="ghost">
+                Support the mission
+              </Button>
+            </div>
+          </Reveal>
         </div>
       </section>
     </>

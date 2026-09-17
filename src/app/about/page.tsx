@@ -2,94 +2,128 @@ import type { Metadata } from "next";
 import { SectionLabel } from "@/components/section-label";
 import { Reveal } from "@/components/reveal";
 import { Button } from "@/components/button";
+import { BrandFigure } from "@/components/brand-figure";
+import { pillars, audiences } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "IntelliMindz Foundation is a Section 8 company building a digitally literate, financially aware and future-ready India through FinTech education.",
+    "Intellimindz Foundation is a Section 8 Company building a digitally literate, financially aware and future-ready India through accessible FinTech education.",
 };
 
-const pillars = [
+const story = [
   {
     title: "What we are",
-    body: "A Section 8 company under the Companies Act — a not-for-profit legal structure built for organizations working toward a social, educational or charitable objective. Income is applied to our mission, not distributed as profit.",
+    body: "A Section 8 Company under the Companies Act — a not-for-profit structure for organisations working toward an educational or charitable objective. Income is applied to the mission, not distributed as profit.",
   },
   {
     title: "Why we exist",
-    body: "India's financial system is going digital faster than financial literacy is keeping up. UPI, digital lending and open banking are now everyday infrastructure — but understanding how they work, and how to use them safely, is not.",
+    body: "India's financial system is going digital faster than financial literacy is keeping up. UPI, digital lending and open finance are everyday infrastructure — understanding how they work, and how to use them safely, is not yet.",
   },
   {
     title: "What we teach",
-    body: "FinTech, specifically — digital payments, financial inclusion, open banking, digital lending, RegTech and the security fundamentals that hold it all together. One field, taught in depth.",
+    body: "Financial technology and emerging digital finance: payments, AI in finance, data, cybersecurity, regulation, blockchain, sustainable finance, InsurTech and WealthTech.",
   },
   {
-    title: "Who we serve",
-    body: "Students and early-career professionals building a foundation in digital finance, working professionals reskilling into FinTech, and community members building basic financial and digital literacy.",
+    title: "How we teach it",
+    body: "A five-level ladder from Discovery to Advanced, in self-paced, live and hybrid formats, so a learner can start anywhere and keep stacking capability.",
   },
 ];
 
 export default function AboutPage() {
   return (
     <>
-      <section className="mx-auto max-w-[1400px] px-6 pb-16 pt-16 md:px-10 md:pt-24">
-        <Reveal>
-          <SectionLabel>About IntelliMindz Foundation</SectionLabel>
-          <h1 className="mt-4 max-w-2xl text-balance font-serif text-5xl leading-[1.05] text-ink md:text-6xl">
-            A foundation, not a marketplace.
-          </h1>
-          <p className="mt-6 max-w-lg text-lg leading-relaxed text-ink-soft">
-            We exist to make FinTech education accessible to every learner
-            India&rsquo;s digital finance transformation will touch.
-          </p>
-        </Reveal>
+      <section className="relative overflow-hidden border-b border-line">
+        <div className="grid-bg" />
+        <div className="glow glow-teal -right-24 -top-24 h-96 w-96 opacity-45" />
+
+        <div className="relative mx-auto grid max-w-[1440px] grid-cols-1 gap-14 px-6 pb-16 pt-14 md:px-10 md:pb-20 md:pt-20 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+          <Reveal>
+            <SectionLabel>About the Foundation</SectionLabel>
+            <h1 className="t-hero mt-7 max-w-[13ch] text-balance text-navy">
+              A foundation, not a marketplace.
+            </h1>
+            <p className="t-lead mt-8 max-w-xl text-ink-soft">
+              Intellimindz Foundation is a Section 8 Company committed to building a
+              digitally literate, financially aware and future-ready India through
+              accessible learning in financial technology and emerging digital finance.
+            </p>
+          </Reveal>
+
+          <Reveal delay={120}>
+            <BrandFigure
+              src="/images/catalogue.jpg"
+              alt="Structured programme architecture across FinTech domains"
+              className="aspect-[4/3] w-full"
+            />
+          </Reveal>
+        </div>
       </section>
 
-      <section className="rule border-t border-line">
-        <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-10">
-          <div className="flex flex-col gap-16">
+      <section className="mx-auto max-w-[1440px] px-6 py-20 md:px-10 md:py-28">
+        <div className="flex flex-col gap-px border border-line bg-line">
+          {story.map((item, i) => (
+            <Reveal key={item.title} delay={i * 60}>
+              <article className="grid grid-cols-1 gap-5 bg-white p-8 md:grid-cols-[320px_1fr] md:gap-10 md:p-10">
+                <h2 className="font-display text-2xl font-extrabold tracking-tight text-navy md:text-3xl">
+                  {item.title}
+                </h2>
+                <p className="max-w-2xl text-ink-soft">{item.body}</p>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      <section className="border-y border-line bg-surface-2">
+        <div className="mx-auto max-w-[1440px] px-6 py-20 md:px-10 md:py-28">
+          <Reveal>
+            <SectionLabel>Our commitments</SectionLabel>
+            <h2 className="t-h2 mt-6 max-w-[18ch] text-balance text-navy">
+              Four commitments, one mission.
+            </h2>
+          </Reveal>
+
+          <div className="mt-14 grid grid-cols-1 gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
             {pillars.map((pillar, i) => (
-              <Reveal key={pillar.title} delay={i * 60}>
-                <div className="grid grid-cols-1 gap-4 border-t border-line-strong pt-6 lg:grid-cols-[280px_1fr]">
-                  <h2 className="font-serif text-3xl text-ink">{pillar.title}</h2>
-                  <p className="max-w-2xl text-base leading-relaxed text-ink-soft">
-                    {pillar.body}
+              <Reveal key={pillar.title} delay={i * 70}>
+                <article className="card-lift h-full border border-transparent bg-white p-8">
+                  <h3 className="t-h3 text-navy">{pillar.title}</h3>
+                  <span aria-hidden className="mt-5 block h-[2px] w-10 bg-teal" />
+                  <p className="mt-5 text-[0.9375rem] leading-relaxed text-ink-soft">
+                    {pillar.description}
                   </p>
-                </div>
+                </article>
               </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="rule border-t border-line bg-paper-dim">
-        <div className="mx-auto max-w-[1400px] px-6 py-24 md:px-10">
-          <Reveal>
-            <SectionLabel>What Makes the Model Different</SectionLabel>
-            <h2 className="mt-4 max-w-2xl font-serif text-4xl leading-tight text-ink md:text-5xl">
-              Built for India&rsquo;s financial system, not a generic one.
-            </h2>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-soft">
-              Every course is grounded in the rails learners will actually
-              use — UPI, Aadhaar-enabled systems, Account Aggregator — and
-              follows a single applied journey: Discover, Build, Apply, Lead.
-              No course ends at theory.
-            </p>
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="rule border-t border-line">
-        <div className="mx-auto flex max-w-[1400px] flex-col items-start gap-6 px-6 py-20 md:px-10 lg:flex-row lg:items-center lg:justify-between">
-          <h2 className="max-w-lg font-serif text-3xl leading-tight text-ink md:text-4xl">
-            Start with a course, or start a conversation.
+      <section className="mx-auto max-w-[1440px] px-6 py-20 md:px-10 md:py-28">
+        <Reveal>
+          <SectionLabel>Who we serve</SectionLabel>
+          <h2 className="t-h2 mt-6 max-w-[16ch] text-balance text-navy">
+            Built for every kind of learner.
           </h2>
-          <div className="flex flex-wrap gap-4">
+          <ul className="mt-12 flex flex-wrap gap-3">
+            {audiences.map((audience) => (
+              <li
+                key={audience}
+                className="border border-line px-6 py-4 font-display text-[1.0625rem] font-bold tracking-tight text-navy transition-colors duration-300 hover:border-teal hover:text-teal"
+              >
+                {audience}
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-14 flex flex-wrap gap-4">
             <Button href="/courses">Explore FinTech Courses</Button>
-            <Button href="/contact" variant="ghost">
-              Talk to IntelliMindz
+            <Button href="/contact" variant="outline">
+              Talk to us
             </Button>
           </div>
-        </div>
+        </Reveal>
       </section>
     </>
   );

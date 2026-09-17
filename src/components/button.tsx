@@ -1,19 +1,16 @@
 import Link from "next/link";
 import type { ComponentProps } from "react";
 
-type BaseProps = {
-  variant?: "primary" | "ghost";
-  className?: string;
-  children: React.ReactNode;
-};
+type Variant = "primary" | "outline" | "invert" | "ghost";
 
 const base =
-  "inline-flex items-center gap-2 px-6 py-3 text-sm font-medium tracking-wide transition-colors duration-300 focus-visible:outline-offset-4";
+  "group inline-flex items-center gap-2.5 px-7 py-4 text-[0.9375rem] font-semibold tracking-tight transition-all duration-300";
 
-const variants: Record<NonNullable<BaseProps["variant"]>, string> = {
-  primary: "bg-teal text-paper hover:bg-teal-deep",
-  ghost:
-    "border border-line-strong text-ink hover:border-ink hover:bg-ink hover:text-paper",
+const variants: Record<Variant, string> = {
+  primary: "bg-navy text-white hover:bg-teal",
+  outline: "border border-line-strong text-navy hover:border-teal hover:text-teal",
+  invert: "bg-white text-navy hover:bg-teal hover:text-white",
+  ghost: "border border-line-invert text-white hover:border-teal hover:text-teal",
 };
 
 export function Button({
@@ -21,15 +18,29 @@ export function Button({
   className = "",
   children,
   href,
+  arrow = true,
   ...rest
-}: BaseProps & ComponentProps<typeof Link>) {
+}: {
+  variant?: Variant;
+  className?: string;
+  arrow?: boolean;
+  children: React.ReactNode;
+} & ComponentProps<typeof Link>) {
+  const external = typeof href === "string" && href.startsWith("http");
+
   return (
     <Link
       href={href}
       className={`${base} ${variants[variant]} ${className}`}
+      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       {...rest}
     >
       {children}
+      {arrow && (
+        <span aria-hidden className="arrow-shift">
+          →
+        </span>
+      )}
     </Link>
   );
 }

@@ -4,11 +4,13 @@ import { useState } from "react";
 import type { FormEvent } from "react";
 
 const inputClass =
-  "w-full border-0 border-b border-line-strong bg-transparent py-3 text-base text-ink placeholder:text-ink-soft focus:border-teal focus:outline-none";
+  "w-full border-0 border-b-2 border-line bg-transparent py-3.5 text-[1.0625rem] font-medium text-navy transition-colors placeholder:text-ink-faint focus:border-teal focus:outline-none";
+
+const labelClass = "t-eyebrow text-ink-faint";
 
 /**
- * Front-end only. Wire the onSubmit handler to a real endpoint
- * (email service, CRM, etc.) before launch.
+ * Front-end only. Wire handleSubmit to a real endpoint (email service, CRM
+ * or form backend) before launch.
  */
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -20,9 +22,11 @@ export function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="border-t border-line-strong pt-8">
-        <p className="font-serif text-2xl text-ink">Thank you.</p>
-        <p className="mt-2 max-w-md text-base leading-relaxed text-ink-soft">
+      <div className="border-t-2 border-teal pt-9">
+        <p className="font-display text-3xl font-extrabold tracking-tight text-navy">
+          Thank you.
+        </p>
+        <p className="mt-3 max-w-md text-ink-soft">
           We&rsquo;ve received your message and will respond shortly.
         </p>
       </div>
@@ -30,16 +34,16 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-8">
-      <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-9">
+      <div className="grid grid-cols-1 gap-9 sm:grid-cols-2">
         <div>
-          <label htmlFor="name" className="text-xs uppercase tracking-[0.2em] text-ink-soft">
+          <label htmlFor="name" className={labelClass}>
             Name
           </label>
           <input id="name" name="name" type="text" required className={`mt-2 ${inputClass}`} />
         </div>
         <div>
-          <label htmlFor="email" className="text-xs uppercase tracking-[0.2em] text-ink-soft">
+          <label htmlFor="email" className={labelClass}>
             Email
           </label>
           <input id="email" name="email" type="email" required className={`mt-2 ${inputClass}`} />
@@ -47,18 +51,19 @@ export function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="reason" className="text-xs uppercase tracking-[0.2em] text-ink-soft">
+        <label htmlFor="reason" className={labelClass}>
           I&rsquo;m reaching out as a
         </label>
-        <select id="reason" name="reason" className={`mt-2 ${inputClass}`} defaultValue="learner">
-          <option value="learner">Prospective learner</option>
-          <option value="organization">Organization / partner</option>
+        <select id="reason" name="reason" defaultValue="learner" className={`mt-2 ${inputClass}`}>
+          <option value="learner">Learner</option>
+          <option value="organisation">Organisation or partner</option>
+          <option value="supporter">Supporter / donor</option>
           <option value="other">Other</option>
         </select>
       </div>
 
       <div>
-        <label htmlFor="message" className="text-xs uppercase tracking-[0.2em] text-ink-soft">
+        <label htmlFor="message" className={labelClass}>
           Message
         </label>
         <textarea
@@ -72,9 +77,12 @@ export function ContactForm() {
 
       <button
         type="submit"
-        className="self-start bg-teal px-6 py-3 text-sm font-medium tracking-wide text-paper transition-colors duration-300 hover:bg-teal-deep"
+        className="group inline-flex items-center gap-2.5 self-start bg-navy px-7 py-4 text-[0.9375rem] font-semibold tracking-tight text-white transition-colors duration-300 hover:bg-teal"
       >
         Send message
+        <span aria-hidden className="arrow-shift">
+          →
+        </span>
       </button>
     </form>
   );

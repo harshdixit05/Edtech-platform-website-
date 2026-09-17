@@ -2,272 +2,355 @@ import Link from "next/link";
 import { Button } from "@/components/button";
 import { SectionLabel } from "@/components/section-label";
 import { Reveal } from "@/components/reveal";
-import { SignatureMark } from "@/components/signature-mark";
-import { FocusAreas } from "@/components/focus-areas";
+import { Marquee } from "@/components/marquee";
+import { BrandFigure } from "@/components/brand-figure";
+import { MindGlyph } from "@/components/logo";
 import {
-  featuredCourse,
-  courses,
-  learningStages,
-  learningExperience,
-  insights,
+  pillars,
+  initiatives,
+  alignmentPoints,
+  ALIGNMENT_DISCLAIMER,
+  domains,
+  levels,
+  catalogueHighlights,
+  supportPoints,
+  DONATION_DISCLAIMER,
+  EXTERNAL,
 } from "@/lib/content";
-
-const positioning = ["Payments", "Financial Inclusion", "Open Banking", "Lending", "RegTech"];
 
 export default function Home() {
   return (
     <>
-      {/* HERO */}
-      <section className="mx-auto grid max-w-[1400px] grid-cols-1 gap-12 px-6 pb-20 pt-16 md:px-10 md:pb-28 md:pt-24 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-        <div>
-          <SectionLabel>IntelliMindz Foundation</SectionLabel>
-          <h1 className="mt-6 max-w-2xl text-balance font-serif text-5xl leading-[1.05] text-ink sm:text-6xl lg:text-7xl">
-            Empowering India through FinTech education.
-          </h1>
-          <p className="mt-6 max-w-md text-lg leading-relaxed text-ink-soft">
-            A Section 8 company building a digitally literate, financially
-            aware and future-ready India — one learner at a time.
-          </p>
-          <div className="mt-10 flex flex-wrap items-center gap-4">
-            <Button href="/courses">Explore FinTech Courses</Button>
-            <Button href="/partnerships" variant="ghost">
-              Partner With Us
-            </Button>
+      {/* ---------------- HERO ---------------- */}
+      <section className="relative overflow-hidden">
+        <div className="grid-bg" />
+        <div className="glow glow-teal -right-20 -top-24 h-[420px] w-[420px]" />
+        <div className="glow glow-navy -left-40 top-40 h-[380px] w-[380px] opacity-40" />
+
+        <div className="relative mx-auto grid max-w-[1440px] grid-cols-1 gap-14 px-6 pb-20 pt-14 md:px-10 md:pb-28 md:pt-20 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-16">
+          <div>
+            <Reveal>
+              <SectionLabel>Not-for-profit FinTech Education</SectionLabel>
+              <h1 className="t-hero mt-7 max-w-[15ch] text-balance text-navy">
+                Empowering India through{" "}
+                <span className="relative whitespace-nowrap text-teal">
+                  FinTech
+                  <svg
+                    aria-hidden
+                    viewBox="0 0 240 12"
+                    className="absolute -bottom-2 left-0 w-full text-teal/45"
+                    preserveAspectRatio="none"
+                  >
+                    <path
+                      d="M2 9C60 3 180 3 238 8"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                      strokeLinecap="round"
+                      fill="none"
+                      className="draw-line"
+                    />
+                  </svg>
+                </span>{" "}
+                education
+              </h1>
+              <p className="t-lead mt-9 max-w-xl text-ink-soft">
+                Intellimindz Foundation is a Section 8 Company committed to building a
+                digitally literate, financially aware and future-ready India through
+                accessible learning in financial technology and emerging digital finance.
+              </p>
+              <div className="mt-11 flex flex-wrap items-center gap-4">
+                <Button href="/courses">Explore FinTech Courses</Button>
+                <Button href="/support" variant="outline">
+                  Support our mission
+                </Button>
+              </div>
+            </Reveal>
           </div>
-        </div>
 
-        <Reveal className="justify-self-center lg:justify-self-end" delay={150}>
-          <SignatureMark className="h-auto w-full max-w-sm text-ink" />
-        </Reveal>
-      </section>
-
-      {/* POSITIONING STRIP */}
-      <section className="rule border-b border-line">
-        <div className="mx-auto flex max-w-[1400px] flex-wrap items-center justify-between gap-x-10 gap-y-4 px-6 py-8 md:px-10">
-          {positioning.map((item) => (
-            <span
-              key={item}
-              className="text-xs font-medium uppercase tracking-[0.24em] text-ink-soft"
-            >
-              {item}
-            </span>
-          ))}
-        </div>
-      </section>
-
-      {/* COURSES */}
-      <section className="mx-auto max-w-[1400px] px-6 py-24 md:px-10">
-        <Reveal>
-          <div className="flex flex-wrap items-end justify-between gap-6">
-            <div>
-              <SectionLabel>Featured Course</SectionLabel>
-              <h2 className="mt-4 max-w-lg font-serif text-4xl leading-tight text-ink md:text-5xl">
-                {featuredCourse.name}
-              </h2>
+          <Reveal delay={150}>
+            <div className="relative">
+              <BrandFigure
+                src="/images/hero.jpg"
+                alt="A learner studying financial technology on a laptop"
+                className="aspect-[4/3.2] w-full"
+                priority
+                sizes="(max-width: 1024px) 100vw, 46vw"
+              />
+              <div className="absolute -bottom-7 -left-5 hidden bg-white p-5 shadow-[0_24px_60px_-30px_rgba(15,23,56,0.5)] sm:block">
+                <div className="flex items-center gap-4">
+                  <MindGlyph className="h-9 w-9 text-teal" />
+                  <div>
+                    <p className="font-display text-[1.0625rem] font-extrabold tracking-tight text-navy">
+                      Section 8 Company
+                    </p>
+                    <p className="text-sm text-ink-soft">Not-for-profit, mission-first</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <Link href="/courses" className="link-underline text-sm text-ink">
-              View all courses →
-            </Link>
-          </div>
+          </Reveal>
+        </div>
+
+        <div className="relative border-y border-line bg-surface-2">
+          <Marquee items={domains.map((d) => d.name)} />
+        </div>
+      </section>
+
+      {/* ---------------- PILLARS ---------------- */}
+      <section className="mx-auto max-w-[1440px] px-6 py-24 md:px-10 md:py-32">
+        <Reveal>
+          <SectionLabel>What we do</SectionLabel>
+          <h2 className="t-h2 mt-6 max-w-[18ch] text-balance text-navy">
+            Four commitments, one mission.
+          </h2>
         </Reveal>
 
-        <Reveal delay={100}>
-          <div className="mt-10 grid grid-cols-1 gap-10 border-t border-line pt-10 md:grid-cols-[1fr_1fr]">
-            <p className="text-lg leading-relaxed text-ink-soft">
-              {featuredCourse.summary}
-            </p>
-            <dl className="grid grid-cols-3 gap-6 self-start text-sm md:justify-self-end">
-              <div>
-                <dt className="text-ink-soft">Level</dt>
-                <dd className="mt-1 font-medium text-ink">{featuredCourse.level}</dd>
-              </div>
-              <div>
-                <dt className="text-ink-soft">Duration</dt>
-                <dd className="mt-1 font-medium text-ink">{featuredCourse.duration}</dd>
-              </div>
-              <div>
-                <dt className="text-ink-soft">Domain</dt>
-                <dd className="mt-1 font-medium text-ink">{featuredCourse.domain}</dd>
-              </div>
-            </dl>
-          </div>
-        </Reveal>
-
-        <div className="mt-6 divide-y divide-line border-t border-line">
-          {courses.slice(0, 4).map((course, i) => (
-            <Reveal key={course.slug} delay={i * 60}>
-              <Link
-                href="/courses"
-                className="group flex flex-col gap-2 py-6 sm:flex-row sm:items-center sm:justify-between"
-              >
-                <span className="font-serif text-2xl text-ink transition-colors duration-300 group-hover:text-teal">
-                  {course.name}
+        <div className="mt-16 grid grid-cols-1 gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
+          {pillars.map((pillar, i) => (
+            <Reveal key={pillar.title} delay={i * 80}>
+              <article className="card-lift group h-full border border-transparent bg-white p-9">
+                <span className="font-display text-sm font-extrabold tracking-widest text-teal">
+                  {String(i + 1).padStart(2, "0")}
                 </span>
-                <span className="flex items-center gap-6 text-sm text-ink-soft">
-                  <span>{course.level}</span>
-                  <span>{course.duration}</span>
-                  <span className="hidden sm:inline">{course.domain}</span>
-                </span>
-              </Link>
+                <h3 className="t-h3 mt-6 text-navy">{pillar.title}</h3>
+                <p className="mt-4 text-[0.9375rem] leading-relaxed text-ink-soft">
+                  {pillar.description}
+                </p>
+              </article>
             </Reveal>
           ))}
         </div>
       </section>
 
-      {/* LEARNING MODEL */}
-      <section className="rule border-b border-line bg-paper-dim">
-        <div className="mx-auto max-w-[1400px] px-6 py-24 md:px-10">
+      {/* ---------------- NATIONAL ALIGNMENT ---------------- */}
+      <section className="surface-navy relative overflow-hidden">
+        <div className="grid-bg grid-bg-invert" />
+        <div className="glow glow-teal right-0 top-20 h-[380px] w-[380px] opacity-30" />
+
+        <div className="relative mx-auto max-w-[1440px] px-6 py-24 md:px-10 md:py-32">
           <Reveal>
-            <SectionLabel>The Learning Model</SectionLabel>
-            <h2 className="mt-4 max-w-lg font-serif text-4xl leading-tight text-ink md:text-5xl">
-              Discover. Build. Apply. Lead.
-            </h2>
-          </Reveal>
-
-          <div className="mt-14 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
-            {learningStages.map((stage, i) => (
-              <Reveal key={stage.step} delay={i * 100}>
-                <div className="border-t border-line-strong pt-6">
-                  <span className="font-serif text-lg text-copper">{stage.step}</span>
-                  <h3 className="mt-3 font-serif text-2xl text-ink">{stage.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-ink-soft">
-                    {stage.description}
-                  </p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* FOCUS AREAS */}
-      <section className="mx-auto max-w-[1400px] px-6 py-24 md:px-10">
-        <Reveal>
-          <div className="grid grid-cols-1 gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-            <div>
-              <SectionLabel>Areas of Focus</SectionLabel>
-              <h2 className="mt-4 max-w-md font-serif text-4xl leading-tight text-ink md:text-5xl">
-                FinTech, in depth.
-              </h2>
-              <p className="mt-6 max-w-sm text-base leading-relaxed text-ink-soft">
-                We teach one field, deeply, rather than many fields,
-                shallowly.
-              </p>
-            </div>
-            <FocusAreas />
-          </div>
-        </Reveal>
-      </section>
-
-      {/* LEARNING EXPERIENCE */}
-      <section className="rule border-y border-line">
-        <div className="mx-auto max-w-[1400px] px-6 py-24 md:px-10">
-          <Reveal>
-            <SectionLabel>The Learning Experience</SectionLabel>
-          </Reveal>
-          <div className="mt-10 grid grid-cols-1 gap-x-10 gap-y-12 sm:grid-cols-2">
-            {learningExperience.map((item, i) => (
-              <Reveal key={item.title} delay={i * 80}>
-                <h3 className="font-serif text-2xl text-ink">{item.title}</h3>
-                <p className="mt-3 max-w-sm text-base leading-relaxed text-ink-soft">
-                  {item.description}
-                </p>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* PARTNERSHIPS TEASER */}
-      <section className="mx-auto max-w-[1400px] px-6 py-24 md:px-10">
-        <Reveal>
-          <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_auto] lg:items-center">
-            <div>
-              <SectionLabel>For Organizations</SectionLabel>
-              <h2 className="mt-4 max-w-xl font-serif text-4xl leading-tight text-ink md:text-5xl">
-                Bring FinTech literacy to your institution.
-              </h2>
-              <p className="mt-6 max-w-md text-base leading-relaxed text-ink-soft">
-                We work with corporates, government bodies and community
-                organizations to design and deliver FinTech capability
-                programs.
-              </p>
-            </div>
-            <Button href="/partnerships">Build a Program</Button>
-          </div>
-        </Reveal>
-      </section>
-
-      {/* ABOUT TEASER */}
-      <section className="rule border-t border-line bg-paper-dim">
-        <div className="mx-auto max-w-[1400px] px-6 py-24 md:px-10">
-          <Reveal>
-            <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_1fr]">
+            <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
               <div>
-                <SectionLabel>About IntelliMindz</SectionLabel>
-                <h2 className="mt-4 font-serif text-4xl leading-tight text-ink md:text-5xl">
-                  A foundation, not a marketplace.
+                <SectionLabel invert>National alignment</SectionLabel>
+                <h2 className="t-h2 mt-6 max-w-[16ch] text-balance">
+                  Contributing to India&rsquo;s digital transformation.
                 </h2>
               </div>
-              <div>
-                <p className="text-lg leading-relaxed text-ink-soft">
-                  IntelliMindz Foundation is a Section 8 company committed to
-                  building a digitally literate, financially aware and
-                  future-ready India through accessible learning in financial
-                  technology and emerging digital finance.
-                </p>
-                <Link href="/about" className="link-underline mt-6 inline-block text-sm text-ink">
-                  Read our story →
-                </Link>
-              </div>
+              <p className="t-lead text-white/65">
+                Our education and capacity-building objectives are aligned with the broader
+                goals of key national initiatives.
+              </p>
+            </div>
+          </Reveal>
+
+          <div className="mt-16 grid grid-cols-1 gap-px bg-white/10 sm:grid-cols-2 lg:grid-cols-5">
+            {initiatives.map((item, i) => (
+              <Reveal key={item.name} delay={i * 70}>
+                <article className="group h-full bg-navy-ink p-8 transition-colors duration-500 hover:bg-navy">
+                  <h3 className="font-display text-xl font-extrabold tracking-tight text-white">
+                    {item.name}
+                  </h3>
+                  <span
+                    aria-hidden
+                    className="mt-4 block h-[2px] w-8 bg-teal transition-all duration-500 group-hover:w-16"
+                  />
+                  <p className="mt-5 text-sm leading-relaxed text-white/60">
+                    {item.description}
+                  </p>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal>
+            <ul className="mt-16 grid grid-cols-1 gap-x-10 gap-y-5 sm:grid-cols-2">
+              {alignmentPoints.map((point) => (
+                <li key={point} className="flex items-start gap-4 text-white/85">
+                  <span aria-hidden className="mt-2 h-[6px] w-[6px] shrink-0 bg-teal" />
+                  <span className="font-medium">{point}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-14 max-w-3xl border-t border-line-invert pt-6 text-[0.8125rem] leading-relaxed text-white/45">
+              {ALIGNMENT_DISCLAIMER}
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ---------------- CATALOGUE ---------------- */}
+      <section className="mx-auto max-w-[1440px] px-6 py-24 md:px-10 md:py-32">
+        <div className="grid grid-cols-1 gap-14 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+          <Reveal>
+            <BrandFigure
+              src="/images/catalogue.jpg"
+              alt="Learners comparing FinTech course options"
+              className="aspect-[4/3] w-full"
+            />
+          </Reveal>
+
+          <Reveal delay={120}>
+            <SectionLabel>Course catalogue</SectionLabel>
+            <h2 className="t-h2 mt-6 max-w-[16ch] text-balance text-navy">
+              Discover courses by category, level and price.
+            </h2>
+            <p className="t-lead mt-7 max-w-lg text-ink-soft">
+              Filter by category, level and audience, compare Free and Paid programmes, and
+              enrol directly.
+            </p>
+
+            <ul className="mt-10 grid grid-cols-1 gap-px border border-line bg-line sm:grid-cols-2">
+              {catalogueHighlights.map((item) => (
+                <li
+                  key={item}
+                  className="bg-white px-6 py-5 font-display text-[0.9375rem] font-bold tracking-tight text-navy"
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-10">
+              <Button href={EXTERNAL.catalogue}>Browse the course catalogue</Button>
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* INSIGHTS PREVIEW */}
-      <section className="mx-auto max-w-[1400px] px-6 py-24 md:px-10">
-        <Reveal>
-          <div className="flex flex-wrap items-end justify-between gap-6">
-            <SectionLabel>Insights</SectionLabel>
-            <Link href="/insights" className="link-underline text-sm text-ink">
-              All insights →
-            </Link>
+      {/* ---------------- DOMAINS ---------------- */}
+      <section className="border-y border-line bg-surface-2">
+        <div className="mx-auto max-w-[1440px] px-6 py-24 md:px-10 md:py-32">
+          <Reveal>
+            <div className="flex flex-wrap items-end justify-between gap-8">
+              <div>
+                <SectionLabel>Learning ecosystem</SectionLabel>
+                <h2 className="t-h2 mt-6 max-w-[16ch] text-balance text-navy">
+                  A complete FinTech learning ecosystem.
+                </h2>
+              </div>
+              <p className="max-w-sm text-ink-soft">
+                Choose a domain, start at the right level, and build a stackable pathway.
+              </p>
+            </div>
+          </Reveal>
+
+          <div className="mt-16 grid grid-cols-1 gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
+            {domains.slice(0, 8).map((domain, i) => (
+              <Reveal key={domain.slug} delay={i * 60}>
+                <Link
+                  href={`/courses#${domain.slug}`}
+                  className="card-lift group flex h-full flex-col border border-transparent bg-white p-8"
+                >
+                  <span className="t-eyebrow text-teal">{domain.short}</span>
+                  <h3 className="mt-5 font-display text-[1.375rem] font-extrabold leading-tight tracking-tight text-navy">
+                    {domain.name}
+                  </h3>
+                  <p className="mt-4 flex-1 text-[0.9375rem] leading-relaxed text-ink-soft">
+                    {domain.description}
+                  </p>
+                  <span className="mt-7 flex items-center gap-2 text-sm font-semibold text-navy transition-colors group-hover:text-teal">
+                    View courses
+                    <span aria-hidden className="arrow-shift">
+                      →
+                    </span>
+                  </span>
+                </Link>
+              </Reveal>
+            ))}
           </div>
+
+          <Reveal>
+            <div className="mt-12">
+              <Button href="/courses" variant="outline">
+                Explore categories
+              </Button>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ---------------- LEVELS ---------------- */}
+      <section className="mx-auto max-w-[1440px] px-6 py-24 md:px-10 md:py-32">
+        <Reveal>
+          <SectionLabel>Learning ladder</SectionLabel>
+          <h2 className="t-h2 mt-6 max-w-[18ch] text-balance text-navy">
+            From quick discovery to advanced specialisation.
+          </h2>
         </Reveal>
-        <div className="mt-10 grid grid-cols-1 gap-10 border-t border-line pt-10 md:grid-cols-2">
-          {insights.slice(0, 2).map((article, i) => (
-            <Reveal key={article.slug} delay={i * 100}>
-              <Link href="/insights" className="group block">
-                <span className="text-xs font-medium uppercase tracking-[0.2em] text-teal">
-                  {article.category}
+
+        <div className="mt-16 border-t border-line">
+          {levels.map((level, i) => (
+            <Reveal key={level.step} delay={i * 60}>
+              <article className="group grid grid-cols-1 items-baseline gap-4 border-b border-line py-8 transition-colors duration-500 hover:bg-surface-2 md:grid-cols-[80px_1.1fr_0.9fr_1fr] md:gap-8 md:px-4">
+                <span className="font-display text-sm font-extrabold tracking-widest text-teal">
+                  {level.step}
                 </span>
-                <h3 className="mt-3 font-serif text-2xl leading-snug text-ink transition-colors duration-300 group-hover:text-teal">
-                  {article.title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-ink-soft">
-                  {article.excerpt}
-                </p>
-              </Link>
+                <div>
+                  <h3 className="font-display text-2xl font-extrabold tracking-tight text-navy md:text-3xl">
+                    {level.name}
+                  </h3>
+                  <span
+                    aria-hidden
+                    className="mt-3 block h-[3px] bg-teal/70 transition-all duration-500"
+                    style={{ width: `${20 + i * 18}%` }}
+                  />
+                </div>
+                <p className="font-semibold text-navy">{level.hours}</p>
+                <div>
+                  <p className="text-ink-soft">{level.outcome}</p>
+                  <p className="mt-1 text-sm text-ink-faint">{level.audience}</p>
+                </div>
+              </article>
             </Reveal>
           ))}
         </div>
       </section>
 
-      {/* FINAL CTA */}
-      <section className="rule border-t border-line">
-        <div className="mx-auto max-w-[1400px] px-6 py-28 text-center md:px-10">
+      {/* ---------------- SUPPORT ---------------- */}
+      <section className="surface-navy relative overflow-hidden">
+        <div className="grid-bg grid-bg-invert" />
+        <div className="glow glow-teal left-1/4 top-0 h-[400px] w-[400px] opacity-25" />
+
+        <div className="relative mx-auto grid max-w-[1440px] grid-cols-1 gap-14 px-6 py-24 md:px-10 md:py-32 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <Reveal>
-            <h2 className="mx-auto max-w-2xl text-balance font-serif text-4xl leading-tight text-ink md:text-6xl">
-              Build the capability to shape India&rsquo;s digital finance
-              future.
+            <SectionLabel invert>Support our mission</SectionLabel>
+            <h2 className="t-h2 mt-6 max-w-[14ch] text-balance">
+              Help a learner move from potential to possibility.
             </h2>
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-              <Button href="/courses">Explore FinTech Courses</Button>
-              <Button href="/contact" variant="ghost">
-                Talk to IntelliMindz
+            <p className="t-lead mt-7 max-w-lg text-white/65">
+              Your contribution helps learners build practical, future-ready capabilities
+              across FinTech, digital payments, AI in finance, cybersecurity and more.
+            </p>
+
+            <ul className="mt-10 flex flex-wrap gap-x-8 gap-y-4">
+              {supportPoints.map((point) => (
+                <li key={point} className="flex items-center gap-3 font-semibold text-white">
+                  <span aria-hidden className="h-[6px] w-[6px] bg-teal" />
+                  {point}
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-11 flex flex-wrap gap-4">
+              <Button href="/support" variant="invert">
+                Contribute now
+              </Button>
+              <Button href="/partnerships" variant="ghost">
+                Partner with us
               </Button>
             </div>
+
+            <p className="mt-12 max-w-xl border-t border-line-invert pt-6 text-[0.8125rem] leading-relaxed text-white/45">
+              {DONATION_DISCLAIMER}
+            </p>
+          </Reveal>
+
+          <Reveal delay={120}>
+            <BrandFigure
+              src="/images/support.jpg"
+              alt="Learners in a FinTech capability-building session"
+              className="aspect-[4/3.4] w-full"
+            />
           </Reveal>
         </div>
       </section>
