@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { siteUrl } from "@/lib/site";
 
 const routes = [
   "",
@@ -11,15 +12,13 @@ const routes = [
   "donate",
   "partnerships",
   "contact",
-  "login",
   "privacy",
   "terms",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://intellimindz.in";
   return routes.map((path) => ({
-    url: `${base}/${path}`,
+    url: path ? `${siteUrl}/${path}` : siteUrl,
     lastModified: new Date(),
   }));
 }

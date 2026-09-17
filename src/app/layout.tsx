@@ -5,6 +5,7 @@ import { Footer } from "@/components/footer";
 import { AnnouncementBar } from "@/components/announcement-bar";
 import { ScrollProgress } from "@/components/scroll-progress";
 import { BackToTop } from "@/components/back-to-top";
+import { siteUrl, isProductionSite } from "@/lib/site";
 import "./globals.css";
 
 const inter = Inter({
@@ -20,7 +21,6 @@ const jakarta = Plus_Jakarta_Sans({
   display: "swap",
 });
 
-const siteUrl = "https://intellimindz.in";
 const description =
   "Intellimindz Foundation is a Section 8 Company committed to building a digitally literate, financially aware and future-ready India through accessible learning in financial technology and emerging digital finance.";
 
@@ -47,6 +47,9 @@ export const metadata: Metadata = {
     locale: "en_IN",
     type: "website",
   },
+  robots: isProductionSite
+    ? undefined
+    : { index: false, follow: false, nocache: true },
   twitter: {
     card: "summary_large_image",
     title: "Intellimindz Foundation — FinTech Education for a Digital Tomorrow",
