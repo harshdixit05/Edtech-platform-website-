@@ -5,7 +5,6 @@ import { Reveal } from "@/components/reveal";
 import { Marquee } from "@/components/marquee";
 import { WaveField } from "@/components/wave-field";
 import { DomainShowcase } from "@/components/domain-showcase";
-import { MindGlyph } from "@/components/logo";
 import { PeopleIcon, BookIcon, ChartIcon, ShieldIcon, EmblemIcon } from "@/components/icons";
 import {
   pillars,
@@ -29,7 +28,7 @@ export default function Home() {
       <section className="relative overflow-hidden bg-tint">
         <WaveField className="top-24" />
 
-        <div className="relative mx-auto grid max-w-[1200px] grid-cols-1 items-center gap-12 px-6 py-16 md:px-10 md:py-20 lg:grid-cols-[1.12fr_0.88fr] lg:gap-14">
+        <div className="relative mx-auto grid max-w-[1320px] grid-cols-1 items-center gap-12 px-5 py-16 md:px-8 md:py-20 lg:grid-cols-[1.12fr_0.88fr] lg:gap-14">
           <Reveal>
             <p className="text-[0.9375rem] text-ink-soft">Not-for-profit FinTech education</p>
             <h1 className="mt-4 max-w-[20ch] font-display text-[clamp(1.875rem,2.9vw,2.75rem)] font-bold leading-[1.15] tracking-[-0.02em] text-navy">
@@ -67,13 +66,6 @@ export default function Home() {
                 />
               </div>
 
-              <div className="absolute -bottom-5 -left-3 hidden items-center gap-3 rounded-[var(--radius-sm)] border border-line bg-white px-4 py-3 shadow-[0_20px_40px_-28px_rgba(15,23,56,0.5)] sm:flex">
-                <MindGlyph className="h-6 w-6 text-teal" />
-                <div>
-                  <p className="text-[0.875rem] font-semibold text-navy">Section 8 Company</p>
-                  <p className="text-[0.75rem] text-ink-soft">Not-for-profit, mission-first</p>
-                </div>
-              </div>
             </div>
           </Reveal>
         </div>
@@ -84,7 +76,7 @@ export default function Home() {
       </div>
 
       {/* ---------------- PILLARS ---------------- */}
-      <section className="mx-auto max-w-[1200px] px-6 py-20 md:px-10 md:py-24">
+      <section className="mx-auto max-w-[1320px] px-5 py-20 md:px-8 md:py-24">
         <Reveal>
           <h2 className="t-h2 max-w-[26ch] text-navy">
             Four commitments,{" "}
@@ -114,7 +106,7 @@ export default function Home() {
 
       {/* ---------------- LEARNING ECOSYSTEM ---------------- */}
       <section className="border-y border-line bg-surface-2">
-        <div className="mx-auto max-w-[1200px] px-6 py-20 md:px-10 md:py-24">
+        <div className="mx-auto max-w-[1320px] px-5 py-20 md:px-8 md:py-24">
           <Reveal>
             <h2 className="t-h2 max-w-[22ch] text-navy">
               A complete <span className="text-teal">FinTech learning ecosystem</span>
@@ -133,7 +125,7 @@ export default function Home() {
       </section>
 
       {/* ---------------- CATALOGUE ---------------- */}
-      <section className="mx-auto max-w-[1200px] px-6 py-20 md:px-10 md:py-24">
+      <section className="mx-auto max-w-[1320px] px-5 py-20 md:px-8 md:py-24">
         <Reveal>
           <div className="card overflow-hidden">
             <div className="grid grid-cols-1 items-center gap-10 p-8 md:p-12 lg:grid-cols-[1.1fr_0.9fr]">
@@ -169,7 +161,7 @@ export default function Home() {
 
       {/* ---------------- LEVELS ---------------- */}
       <section className="border-y border-line bg-surface-2">
-        <div className="mx-auto max-w-[1200px] px-6 py-20 md:px-10 md:py-24">
+        <div className="mx-auto max-w-[1320px] px-5 py-20 md:px-8 md:py-24">
           <Reveal>
             <h2 className="t-h2 max-w-[26ch] text-navy">
               From quick discovery to{" "}
@@ -214,9 +206,9 @@ export default function Home() {
 
       {/* ---------------- NATIONAL ALIGNMENT ---------------- */}
       <section className="bg-surface-3/40">
-        <div className="mx-auto max-w-[1200px] px-6 py-20 md:px-10 md:py-24">
+        <div className="mx-auto max-w-[1320px] px-5 py-20 md:px-8 md:py-24">
           <Reveal>
-            <div className="card px-6 py-12 md:px-10 md:py-14">
+            <div className="card px-5 py-12 md:px-8 md:py-14">
               <h2 className="t-h2 mx-auto max-w-[24ch] text-balance text-center text-navy">
                 Contributing to India&rsquo;s{" "}
                 <span className="text-teal">Digital Transformation</span>
@@ -248,7 +240,7 @@ export default function Home() {
               {alignmentPoints.map((point, i) => {
                 const Icon = alignmentIcons[i];
                 return (
-                  <div key={point} className="flex items-center gap-4 px-6 py-5">
+                  <div key={point} className="flex items-center gap-4 px-5 py-5">
                     <Icon className="h-6 w-6 shrink-0 text-teal-bright" />
                     <p className="text-[0.875rem] font-semibold leading-snug text-white">
                       {point}
@@ -267,7 +259,7 @@ export default function Home() {
 
       {/* ---------------- SUPPORT ---------------- */}
       <section className="border-t border-line bg-white">
-        <div className="mx-auto max-w-[1200px] px-6 py-20 md:px-10 md:py-24">
+        <div className="mx-auto max-w-[1320px] px-5 py-20 md:px-8 md:py-24">
           <Reveal>
             <div className="surface-navy relative overflow-hidden rounded-[var(--radius)] px-8 py-14 md:px-14 md:py-16">
               <div className="glow glow-teal -right-10 top-0 h-72 w-72 opacity-25" />

@@ -41,7 +41,7 @@ export function Nav() {
           : "border-b border-line/60 bg-white"
       }`}
     >
-      <div className="mx-auto flex max-w-[1200px] items-center justify-between gap-6 px-6 py-3.5 md:px-10">
+      <div className="mx-auto flex max-w-[1320px] items-center justify-between gap-6 px-5 py-3.5 md:px-8">
         <Logo />
 
         <nav className="hidden items-center gap-6 xl:flex" aria-label="Primary">
@@ -103,7 +103,7 @@ export function Nav() {
           open ? "max-h-[620px] border-line" : "max-h-0 border-transparent"
         }`}
       >
-        <nav className="flex flex-col px-6 pb-6 pt-2" aria-label="Mobile">
+        <nav className="flex flex-col px-5 pb-6 pt-2" aria-label="Mobile">
           {links.map((link) => (
             <Link
               key={link.href}
@@ -124,7 +124,7 @@ export function Nav() {
             </Link>
             <Link
               href="/courses"
-              className="rounded-[var(--radius-sm)] bg-navy px-6 py-3.5 text-center text-[0.9375rem] font-semibold text-white"
+              className="rounded-[var(--radius-sm)] bg-navy px-5 py-3.5 text-center text-[0.9375rem] font-semibold text-white"
             >
               Explore Courses →
             </Link>

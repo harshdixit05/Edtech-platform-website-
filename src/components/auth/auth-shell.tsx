@@ -17,7 +17,7 @@ export function AuthShell({
     <section className="relative overflow-hidden bg-tint">
       <WaveField className="top-40" />
 
-      <div className="relative mx-auto max-w-[1200px] px-6 py-16 md:px-10 md:py-24">
+      <div className="relative mx-auto max-w-[1320px] px-5 py-16 md:px-8 md:py-24">
         <div className="mx-auto max-w-md">
           <h1 className="t-h2 text-center text-navy">
             {title} {accent && <span className="text-teal">{accent}</span>}

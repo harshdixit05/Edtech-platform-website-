@@ -232,7 +232,9 @@ h4 {
   animation-play-state: paused;
 }
 
-/* Flowing wave field behind the hero — slow, seamless, low contrast */
+/* Flowing wave field behind the hero — slow, seamless, low contrast.
+   Two nested elements so the horizontal loop and the vertical swell can run
+   on different timings without fighting over one transform. */
 @keyframes wave-drift {
   from {
     transform: translate3d(0, 0, 0);
@@ -240,6 +242,23 @@ h4 {
   to {
     transform: translate3d(-50%, 0, 0);
   }
+}
+
+@keyframes wave-swell {
+  0%,
+  100% {
+    transform: translate3d(0, -14px, 0);
+  }
+  50% {
+    transform: translate3d(0, 14px, 0);
+  }
+}
+
+.wave-swell {
+  position: absolute;
+  inset: 0;
+  animation: wave-swell ease-in-out infinite;
+  will-change: transform;
 }
 
 .wave-layer {

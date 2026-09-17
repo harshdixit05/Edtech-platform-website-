@@ -1,12 +1,13 @@
 /**
- * Slow-flowing line field behind the hero. Pure SVG + CSS transform, no JS,
- * no canvas — three layers drifting at different speeds so the motion never
- * loops visibly. Stops entirely under prefers-reduced-motion.
+ * Slow-flowing line field behind the hero. Pure SVG + CSS transforms, no JS
+ * and no canvas: one layer drifts sideways on a seamless loop while its
+ * wrapper swells gently up and down on a slower, offset timing, so the motion
+ * never reads as a repeating cycle. Stops under prefers-reduced-motion.
  */
 
-const layers = [{ y: 190, amp: 42, strokes: 9, gap: 7, duration: 48, opacity: 0.55 }];
+const layer = { y: 190, amp: 42, strokes: 9, gap: 7, driftSeconds: 48, swellSeconds: 11 };
 
-/** One seamless sine-ish path repeated twice across a 2400-unit span. */
+/** One seamless sine-ish path repeated across a 2400-unit span. */
 function wavePath(y: number, amp: number) {
   const seg = (x: number) =>
     `C ${x + 100} ${y - amp}, ${x + 200} ${y + amp}, ${x + 300} ${y} ` +
@@ -20,16 +21,13 @@ export function WaveField({ className = "" }: { className?: string }) {
       aria-hidden
       className={`pointer-events-none absolute inset-0 overflow-hidden ${className}`}
     >
-      {layers.map((layer, li) => (
+      <div
+        className="wave-swell"
+        style={{ animationDuration: `${layer.swellSeconds}s` }}
+      >
         <div
-          key={li}
           className="wave-layer"
-          style={{
-            top: 0,
-            animationDuration: `${layer.duration}s`,
-            animationDirection: li % 2 ? "reverse" : "normal",
-            opacity: layer.opacity,
-          }}
+          style={{ top: 0, animationDuration: `${layer.driftSeconds}s` }}
         >
           <svg
             viewBox="0 0 2400 420"
@@ -41,13 +39,13 @@ export function WaveField({ className = "" }: { className?: string }) {
                 <path
                   key={i}
                   d={wavePath(layer.y + i * layer.gap, layer.amp - i * 1.5)}
-                  opacity={0.55 - i * 0.05}
+                  opacity={0.34 - i * 0.03}
                 />
               ))}
             </g>
           </svg>
         </div>
-      ))}
+      </div>
     </div>
   );
 }

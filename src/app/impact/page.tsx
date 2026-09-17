@@ -21,7 +21,7 @@ export default function ImpactPage() {
         <div className="grid-bg" />
         <div className="glow glow-teal -right-24 -top-24 h-96 w-96 opacity-45" />
 
-        <div className="relative mx-auto grid max-w-[1200px] grid-cols-1 gap-14 px-6 pb-16 pt-14 md:px-10 md:pb-20 md:pt-20 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+        <div className="relative mx-auto grid max-w-[1320px] grid-cols-1 gap-14 px-5 pb-16 pt-14 md:px-8 md:pb-20 md:pt-20 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <Reveal>
             <SectionLabel>Impact</SectionLabel>
             <h1 className="t-hero mt-7 max-w-[16ch] text-navy">
@@ -45,9 +45,9 @@ export default function ImpactPage() {
       </section>
 
       {/* Initiatives */}
-      <section className="mx-auto max-w-[1200px] px-6 py-20 md:px-10 md:py-24">
+      <section className="mx-auto max-w-[1320px] px-5 py-20 md:px-8 md:py-24">
         <Reveal>
-          <div className="card px-6 py-12 md:px-10 md:py-14">
+          <div className="card px-5 py-12 md:px-8 md:py-14">
             <div className="grid grid-cols-1 divide-y divide-line sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-5 lg:divide-x">
               {initiatives.map((item) => (
                 <div key={item.name} className="px-5 py-8 text-center lg:py-0">
@@ -68,7 +68,7 @@ export default function ImpactPage() {
 
       {/* How we contribute */}
       <section className="bg-surface-3/40">
-        <div className="mx-auto max-w-[1200px] px-6 py-20 md:px-10 md:py-24">
+        <div className="mx-auto max-w-[1320px] px-5 py-20 md:px-8 md:py-24">
           <Reveal>
             <h2 className="t-h2 mx-auto max-w-[24ch] text-balance text-center text-navy">
               Education as <span className="text-teal">public infrastructure</span>
@@ -80,7 +80,7 @@ export default function ImpactPage() {
               {alignmentPoints.map((point, i) => {
                 const Icon = alignmentIcons[i];
                 return (
-                  <div key={point} className="flex items-center gap-4 px-6 py-5">
+                  <div key={point} className="flex items-center gap-4 px-5 py-5">
                     <Icon className="h-6 w-6 shrink-0 text-teal-bright" />
                     <p className="text-[0.875rem] font-semibold leading-snug text-white">
                       {point}
@@ -98,7 +98,7 @@ export default function ImpactPage() {
       </section>
 
       {/* Pillars recap */}
-      <section className="mx-auto max-w-[1200px] px-6 py-20 md:px-10 md:py-28">
+      <section className="mx-auto max-w-[1320px] px-5 py-20 md:px-8 md:py-28">
         <Reveal>
           <SectionLabel>Our commitments</SectionLabel>
           <h2 className="t-h2 mt-6 max-w-[16ch] text-balance text-navy">

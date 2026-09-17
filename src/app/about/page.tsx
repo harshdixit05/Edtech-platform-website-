@@ -37,11 +37,11 @@ export default function AboutPage() {
         <div className="grid-bg" />
         <div className="glow glow-teal -right-24 -top-24 h-96 w-96 opacity-45" />
 
-        <div className="relative mx-auto grid max-w-[1200px] grid-cols-1 gap-14 px-6 pb-16 pt-14 md:px-10 md:pb-20 md:pt-20 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+        <div className="relative mx-auto grid max-w-[1320px] grid-cols-1 gap-14 px-5 pb-16 pt-14 md:px-8 md:pb-20 md:pt-20 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <Reveal>
             <SectionLabel>About the Foundation</SectionLabel>
-            <h1 className="t-hero mt-7 max-w-[13ch] text-balance text-navy">
-              A foundation, not a marketplace.
+            <h1 className="t-hero mt-7 max-w-[16ch] text-navy">
+              A <span className="text-teal">foundation</span>, not a marketplace
             </h1>
             <p className="t-lead mt-8 max-w-xl text-ink-soft">
               Intellimindz Foundation is a Section 8 Company committed to building a
@@ -60,7 +60,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-[1200px] px-6 py-20 md:px-10 md:py-28">
+      <section className="mx-auto max-w-[1320px] px-5 py-20 md:px-8 md:py-28">
         <div className="flex flex-col gap-4">
           {story.map((item, i) => (
             <Reveal key={item.title} delay={i * 60}>
@@ -76,11 +76,11 @@ export default function AboutPage() {
       </section>
 
       <section className="border-y border-line bg-surface-2">
-        <div className="mx-auto max-w-[1200px] px-6 py-20 md:px-10 md:py-28">
+        <div className="mx-auto max-w-[1320px] px-5 py-20 md:px-8 md:py-28">
           <Reveal>
             <SectionLabel>Our commitments</SectionLabel>
             <h2 className="t-h2 mt-6 max-w-[18ch] text-balance text-navy">
-              Four commitments, one mission.
+              Four commitments, <span className="text-teal">one mission</span>
             </h2>
           </Reveal>
 
@@ -100,11 +100,11 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-[1200px] px-6 py-20 md:px-10 md:py-28">
+      <section className="mx-auto max-w-[1320px] px-5 py-20 md:px-8 md:py-28">
         <Reveal>
           <SectionLabel>Who we serve</SectionLabel>
           <h2 className="t-h2 mt-6 max-w-[16ch] text-balance text-navy">
-            Built for every kind of learner.
+            Built for <span className="text-teal">every kind of learner</span>
           </h2>
           <ul className="mt-12 flex flex-wrap gap-3">
             {audiences.map((audience) => (

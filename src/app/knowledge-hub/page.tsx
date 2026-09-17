@@ -26,17 +26,17 @@ export default function InsightsPage() {
         <div className="grid-bg" />
         <div className="glow glow-teal -right-24 -top-24 h-96 w-96 opacity-40" />
 
-        <div className="relative mx-auto max-w-[1200px] px-6 pb-16 pt-14 md:px-10 md:pb-20 md:pt-20">
+        <div className="relative mx-auto max-w-[1320px] px-5 pb-16 pt-14 md:px-8 md:pb-20 md:pt-20">
           <Reveal>
             <SectionLabel>Knowledge Hub</SectionLabel>
             <h1 className="t-hero mt-7 max-w-[13ch] text-balance text-navy">
-              FinTech, plainly written
+              FinTech, <span className="text-teal">plainly written</span>
             </h1>
           </Reveal>
         </div>
       </section>
 
-      <section className="mx-auto max-w-[1200px] px-6 py-20 md:px-10 md:py-28">
+      <section className="mx-auto max-w-[1320px] px-5 py-20 md:px-8 md:py-28">
         <Reveal>
           <article className="group border-t-2 border-navy pt-10">
             <div className="flex flex-wrap items-center gap-5">

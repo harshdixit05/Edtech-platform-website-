@@ -18,7 +18,7 @@ export default async function AccountPage() {
   if (!user) redirect("/login");
 
   return (
-    <section className="mx-auto max-w-[1200px] px-6 py-16 md:px-10 md:py-20">
+    <section className="mx-auto max-w-[1320px] px-5 py-16 md:px-8 md:py-20">
       <div className="flex flex-wrap items-start justify-between gap-6">
         <div>
           <p className="text-[0.9375rem] text-ink-soft">Signed in as {user.email}</p>

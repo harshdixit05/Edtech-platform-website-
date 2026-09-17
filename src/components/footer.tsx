@@ -38,7 +38,7 @@ export function Footer() {
       <div className="grid-bg grid-bg-invert opacity-60" />
       <div className="glow glow-teal -left-32 top-10 h-72 w-72 opacity-25" />
 
-      <div className="relative mx-auto max-w-[1200px] px-6 py-20 md:px-10">
+      <div className="relative mx-auto max-w-[1320px] px-5 py-20 md:px-8">
         <div className="grid grid-cols-1 gap-14 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
           <div className="max-w-sm">
             <Logo invert />

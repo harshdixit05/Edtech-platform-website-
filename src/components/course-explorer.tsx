@@ -21,7 +21,7 @@ export function CourseExplorer() {
                   type="button"
                   onClick={() => setActiveSlug(domain.slug)}
                   aria-current={selected}
-                  className={`group flex w-full items-center justify-between gap-4 border-b border-line px-6 py-5 text-left transition-colors duration-300 ${
+                  className={`group flex w-full items-center justify-between gap-4 border-b border-line px-5 py-5 text-left transition-colors duration-300 ${
                     selected ? "bg-navy" : "hover:bg-surface-2"
                   }`}
                 >

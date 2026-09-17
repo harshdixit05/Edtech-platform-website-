@@ -56,11 +56,11 @@ export default function PartnershipsPage() {
         <div className="grid-bg" />
         <div className="glow glow-teal -left-20 -top-24 h-96 w-96 opacity-45" />
 
-        <div className="relative mx-auto max-w-[1200px] px-6 pb-16 pt-14 md:px-10 md:pb-20 md:pt-20">
+        <div className="relative mx-auto max-w-[1320px] px-5 pb-16 pt-14 md:px-8 md:pb-20 md:pt-20">
           <Reveal>
             <SectionLabel>Partnerships</SectionLabel>
             <h1 className="t-hero mt-7 max-w-[14ch] text-balance text-navy">
-              Build FinTech capability, together.
+              Build FinTech capability, <span className="text-teal">together</span>
             </h1>
             <p className="t-lead mt-8 max-w-xl text-ink-soft">
               We collaborate with academia, industry and ecosystem partners to design and
@@ -73,11 +73,11 @@ export default function PartnershipsPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-[1200px] px-6 py-20 md:px-10 md:py-28">
+      <section className="mx-auto max-w-[1320px] px-5 py-20 md:px-8 md:py-28">
         <Reveal>
           <SectionLabel>Who we work with</SectionLabel>
           <h2 className="t-h2 mt-6 max-w-[16ch] text-balance text-navy">
-            Four kinds of partner.
+            Four kinds of <span className="text-teal">partner</span>
           </h2>
         </Reveal>
 
@@ -100,10 +100,10 @@ export default function PartnershipsPage() {
         <div className="grid-bg grid-bg-invert" />
         <div className="glow glow-teal right-0 top-10 h-80 w-80 opacity-25" />
 
-        <div className="relative mx-auto max-w-[1200px] px-6 py-20 md:px-10 md:py-28">
+        <div className="relative mx-auto max-w-[1320px] px-5 py-20 md:px-8 md:py-28">
           <Reveal>
             <SectionLabel invert>How it works</SectionLabel>
-            <h2 className="t-h2 mt-6 max-w-[16ch] text-balance">Three steps to a programme.</h2>
+            <h2 className="t-h2 mt-6 max-w-[16ch] text-balance">Three steps to a <span className="text-teal-bright">programme</span></h2>
           </Reveal>
 
           <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-3">

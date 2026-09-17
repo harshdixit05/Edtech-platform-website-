@@ -15,7 +15,7 @@ export default function CategoriesPage() {
   return (
     <>
       <section className="border-b border-line bg-tint">
-        <div className="mx-auto max-w-[1200px] px-6 py-16 md:px-10 md:py-20">
+        <div className="mx-auto max-w-[1320px] px-5 py-16 md:px-8 md:py-20">
           <Reveal>
             <h1 className="t-hero max-w-[16ch] text-navy">
               Every <span className="text-teal">FinTech category</span> we teach
@@ -35,7 +35,7 @@ export default function CategoriesPage() {
       </section>
 
       {/* Full grid */}
-      <section className="mx-auto max-w-[1200px] px-6 py-20 md:px-10 md:py-24">
+      <section className="mx-auto max-w-[1320px] px-5 py-20 md:px-8 md:py-24">
         <Reveal>
           <h2 className="t-h2 max-w-[20ch] text-navy">
             The full <span className="text-teal">FinTech map</span>
@@ -84,7 +84,7 @@ export default function CategoriesPage() {
 
       {/* Explorer */}
       <section className="border-y border-line bg-surface-2">
-        <div className="mx-auto max-w-[1200px] px-6 py-20 md:px-10 md:py-24">
+        <div className="mx-auto max-w-[1320px] px-5 py-20 md:px-8 md:py-24">
           <Reveal>
             <h2 className="t-h2 max-w-[22ch] text-navy">
               Explore what each <span className="text-teal">domain covers</span>

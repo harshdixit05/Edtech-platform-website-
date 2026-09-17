@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <section className="mx-auto max-w-[900px] px-6 py-24 md:px-10 md:py-32">
+    <section className="mx-auto max-w-[900px] px-5 py-24 md:px-8 md:py-32">
       <SectionLabel>Legal</SectionLabel>
       <h1 className="t-h2 mt-6 text-navy">Terms of Use</h1>
       {/* Placeholder — replace with the Foundation's reviewed terms of use */}

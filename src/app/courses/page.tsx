@@ -19,11 +19,11 @@ export default function CoursesPage() {
         <div className="grid-bg" />
         <div className="glow glow-teal -right-24 -top-28 h-96 w-96 opacity-50" />
 
-        <div className="relative mx-auto max-w-[1200px] px-6 pb-16 pt-14 md:px-10 md:pb-20 md:pt-20">
+        <div className="relative mx-auto max-w-[1320px] px-5 pb-16 pt-14 md:px-8 md:pb-20 md:pt-20">
           <Reveal>
             <SectionLabel>Courses</SectionLabel>
             <h1 className="t-hero mt-7 max-w-[14ch] text-balance text-navy">
-              Ten domains. Five levels. One pathway.
+              Ten domains. Five levels. <span className="text-teal">One pathway</span>
             </h1>
             <p className="t-lead mt-8 max-w-xl text-ink-soft">
               Pick a domain, start where you are, and stack your way up. Free and paid
@@ -46,13 +46,13 @@ export default function CoursesPage() {
       </section>
 
       {/* Explorer */}
-      <section className="mx-auto max-w-[1200px] px-6 py-20 md:px-10 md:py-28">
+      <section className="mx-auto max-w-[1320px] px-5 py-20 md:px-8 md:py-28">
         <Reveal>
           <div className="flex flex-wrap items-end justify-between gap-6">
             <div>
               <SectionLabel>Explore by domain</SectionLabel>
               <h2 className="t-h2 mt-6 max-w-[16ch] text-balance text-navy">
-                Choose where you want to build.
+                Choose where you want to <span className="text-teal">build</span>
               </h2>
             </div>
             <p className="max-w-xs text-ink-soft">
@@ -70,11 +70,11 @@ export default function CoursesPage() {
 
       {/* All domains overview */}
       <section className="border-y border-line bg-surface-2">
-        <div className="mx-auto max-w-[1200px] px-6 py-20 md:px-10 md:py-28">
+        <div className="mx-auto max-w-[1320px] px-5 py-20 md:px-8 md:py-28">
           <Reveal>
             <SectionLabel>All categories</SectionLabel>
             <h2 className="t-h2 mt-6 max-w-[16ch] text-balance text-navy">
-              The full FinTech map.
+              The full <span className="text-teal">FinTech map</span>
             </h2>
           </Reveal>
 
@@ -99,11 +99,11 @@ export default function CoursesPage() {
       </section>
 
       {/* Formats */}
-      <section className="mx-auto max-w-[1200px] px-6 py-20 md:px-10 md:py-28">
+      <section className="mx-auto max-w-[1320px] px-5 py-20 md:px-8 md:py-28">
         <Reveal>
           <SectionLabel>How you learn</SectionLabel>
           <h2 className="t-h2 mt-6 max-w-[16ch] text-balance text-navy">
-            Three formats, one standard.
+            Three formats, <span className="text-teal">one standard</span>
           </h2>
         </Reveal>
 
@@ -124,9 +124,9 @@ export default function CoursesPage() {
 
       <section className="surface-navy relative overflow-hidden">
         <div className="grid-bg grid-bg-invert" />
-        <div className="relative mx-auto flex max-w-[1200px] flex-col items-start gap-8 px-6 py-20 md:px-10 md:py-24 lg:flex-row lg:items-center lg:justify-between">
+        <div className="relative mx-auto flex max-w-[1320px] flex-col items-start gap-8 px-5 py-20 md:px-8 md:py-24 lg:flex-row lg:items-center lg:justify-between">
           <h2 className="t-h2 max-w-[18ch] text-balance">
-            Ready to find the right course?
+            Ready to find the <span className="text-teal-bright">right course</span>?
           </h2>
           <div className="flex flex-wrap gap-4">
             <Button href={EXTERNAL.catalogue} variant="invert">

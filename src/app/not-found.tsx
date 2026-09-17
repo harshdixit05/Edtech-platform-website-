@@ -5,7 +5,7 @@ export default function NotFound() {
     <section className="relative overflow-hidden">
       <div className="grid-bg" />
       <div className="glow glow-teal -right-20 -top-20 h-80 w-80 opacity-40" />
-      <div className="relative mx-auto flex max-w-[1200px] flex-col items-start px-6 py-32 md:px-10 md:py-40">
+      <div className="relative mx-auto flex max-w-[1320px] flex-col items-start px-5 py-32 md:px-8 md:py-40">
         <p className="t-eyebrow text-teal">404</p>
         <h1 className="t-hero mt-6 text-navy">Page not found.</h1>
         <p className="t-lead mt-7 max-w-md text-ink-soft">
