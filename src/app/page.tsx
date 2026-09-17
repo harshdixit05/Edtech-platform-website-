@@ -1,5 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/button";
+import { MindGlyph } from "@/components/logo";
 import { Reveal } from "@/components/reveal";
 import { Marquee } from "@/components/marquee";
 import { WaveField } from "@/components/wave-field";
@@ -46,6 +48,32 @@ export default function Home() {
               >
                 About the Foundation
               </Link>
+            </div>
+          </Reveal>
+
+          <Reveal delay={150}>
+            <div className="relative mx-auto mt-16 max-w-[1000px] md:mt-20">
+              <div className="relative overflow-hidden rounded-[var(--radius)] border border-line bg-white shadow-[0_40px_80px_-50px_rgba(15,23,56,0.5)]">
+                <Image
+                  src="/images/hero.jpg"
+                  alt="A learner studying at a laptop with a city skyline behind"
+                  width={1672}
+                  height={941}
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 1000px"
+                  className="h-auto w-full"
+                />
+              </div>
+
+              <div className="absolute -bottom-5 left-4 hidden items-center gap-3 rounded-[var(--radius-sm)] border border-line bg-white px-5 py-3.5 shadow-[0_20px_40px_-28px_rgba(15,23,56,0.5)] sm:flex md:left-8">
+                <MindGlyph className="h-7 w-7 text-teal" />
+                <div className="text-left">
+                  <p className="text-[0.9375rem] font-semibold text-navy">
+                    Section 8 Company
+                  </p>
+                  <p className="text-[0.8125rem] text-ink-soft">Not-for-profit, mission-first</p>
+                </div>
+              </div>
             </div>
           </Reveal>
         </div>
