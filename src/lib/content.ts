@@ -36,28 +36,38 @@ export const pillars = [
 
 /* --- National alignment ---------------------------------------- */
 
+/**
+ * `logo` points at a mark in /public/images. These are third-party and
+ * government marks shown to indicate thematic alignment only — see
+ * ALIGNMENT_DISCLAIMER, which must stay rendered alongside them.
+ */
 export const initiatives = [
   {
     name: "Digital India",
+    logo: "/images/digital-india.png",
     description:
       "Digital empowerment, accessible knowledge and participation in the digital economy.",
   },
   {
     name: "Digital Finance",
+    logo: "/images/digital-finance.png",
     description: "Understanding of digital payments, financial technology, trust and inclusion.",
   },
   {
     name: "Skill India",
+    logo: "/images/skill-india.png",
     description:
       "Practical, future-ready capability for employability, professional growth and lifelong learning.",
   },
   {
     name: "Startup India",
+    logo: "/images/startup-india.png",
     description:
       "Innovation, entrepreneurship and a stronger pipeline of FinTech talent and problem-solvers.",
   },
   {
     name: "Atmanirbhar Bharat",
+    logo: "/images/atmanirbhar-bharat.png",
     description:
       "Domestic capability, digital resilience and self-reliance through education and innovation.",
   },

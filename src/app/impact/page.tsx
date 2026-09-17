@@ -3,7 +3,8 @@ import { SectionLabel } from "@/components/section-label";
 import { Reveal } from "@/components/reveal";
 import { Button } from "@/components/button";
 import { BrandFigure } from "@/components/brand-figure";
-import { PeopleIcon, BookIcon, ChartIcon, ShieldIcon, EmblemIcon } from "@/components/icons";
+import Image from "next/image";
+import { PeopleIcon, BookIcon, ChartIcon, ShieldIcon } from "@/components/icons";
 import { initiatives, alignmentPoints, ALIGNMENT_DISCLAIMER, pillars } from "@/lib/content";
 
 const alignmentIcons = [PeopleIcon, BookIcon, ChartIcon, ShieldIcon];
@@ -51,8 +52,15 @@ export default function ImpactPage() {
             <div className="grid grid-cols-1 divide-y divide-line sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-5 lg:divide-x">
               {initiatives.map((item) => (
                 <div key={item.name} className="px-5 py-8 text-center lg:py-0">
-                  {/* Logo slot — drop an official mark in here if licensed to use it */}
-                  <EmblemIcon className="mx-auto h-12 w-12 text-teal" />
+                  <div className="flex h-16 items-center justify-center">
+                    <Image
+                      src={item.logo}
+                      alt={`${item.name} logo`}
+                      width={240}
+                      height={130}
+                      className="h-auto max-h-16 w-auto max-w-[170px] object-contain"
+                    />
+                  </div>
                   <h2 className="mt-5 font-display text-[1.0625rem] font-bold tracking-tight text-navy">
                     {item.name}
                   </h2>

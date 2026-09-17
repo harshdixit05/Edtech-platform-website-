@@ -5,7 +5,7 @@ import { Reveal } from "@/components/reveal";
 import { Marquee } from "@/components/marquee";
 import { WaveField } from "@/components/wave-field";
 import { DomainShowcase } from "@/components/domain-showcase";
-import { PeopleIcon, BookIcon, ChartIcon, ShieldIcon, EmblemIcon } from "@/components/icons";
+import { PeopleIcon, BookIcon, ChartIcon, ShieldIcon } from "@/components/icons";
 import {
   pillars,
   initiatives,
@@ -74,6 +74,66 @@ export default function Home() {
       <div className="border-y border-line bg-white">
         <Marquee items={domains.map((d) => d.name)} />
       </div>
+
+      {/* ---------------- NATIONAL ALIGNMENT ---------------- */}
+      <section className="bg-surface-3/40">
+        <div className="mx-auto max-w-[1320px] px-5 py-20 md:px-8 md:py-24">
+          <Reveal>
+            <div className="card px-5 py-12 md:px-8 md:py-14">
+              <h2 className="t-h2 mx-auto max-w-[24ch] text-balance text-center text-navy">
+                Contributing to India&rsquo;s{" "}
+                <span className="text-teal">Digital Transformation</span>
+              </h2>
+              <p className="mx-auto mt-4 max-w-2xl text-center text-ink-soft">
+                Our education and capacity-building objectives are aligned with the broader
+                goals of key national initiatives.
+              </p>
+
+              <div className="mt-12 grid grid-cols-1 divide-y divide-line sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-5 lg:divide-x">
+                {initiatives.map((item) => (
+                  <div key={item.name} className="px-5 py-8 text-center lg:py-0">
+                    <div className="flex h-16 items-center justify-center">
+                      <Image
+                        src={item.logo}
+                        alt={`${item.name} logo`}
+                        width={240}
+                        height={130}
+                        className="h-auto max-h-16 w-auto max-w-[170px] object-contain"
+                      />
+                    </div>
+                    <h3 className="mt-5 font-display text-[1.0625rem] font-bold tracking-tight text-navy">
+                      {item.name}
+                    </h3>
+                    <p className="mt-3 text-[0.9375rem] leading-relaxed text-ink-soft">
+                      {item.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal delay={80}>
+            <div className="mt-6 grid grid-cols-1 divide-y divide-white/15 overflow-hidden rounded-[var(--radius)] bg-navy md:grid-cols-2 md:divide-y-0 lg:grid-cols-4 lg:divide-x">
+              {alignmentPoints.map((point, i) => {
+                const Icon = alignmentIcons[i];
+                return (
+                  <div key={point} className="flex items-center gap-4 px-5 py-5">
+                    <Icon className="h-6 w-6 shrink-0 text-teal-bright" />
+                    <p className="text-[0.875rem] font-semibold leading-snug text-white">
+                      {point}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+
+            <p className="mx-auto mt-8 max-w-3xl text-center text-[0.8125rem] leading-relaxed text-ink-faint">
+              {ALIGNMENT_DISCLAIMER}
+            </p>
+          </Reveal>
+        </div>
+      </section>
 
       {/* ---------------- PILLARS ---------------- */}
       <section className="mx-auto max-w-[1320px] px-5 py-20 md:px-8 md:py-24">
@@ -200,59 +260,6 @@ export default function Home() {
                 See how the learning ladder works
               </Link>
             </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ---------------- NATIONAL ALIGNMENT ---------------- */}
-      <section className="bg-surface-3/40">
-        <div className="mx-auto max-w-[1320px] px-5 py-20 md:px-8 md:py-24">
-          <Reveal>
-            <div className="card px-5 py-12 md:px-8 md:py-14">
-              <h2 className="t-h2 mx-auto max-w-[24ch] text-balance text-center text-navy">
-                Contributing to India&rsquo;s{" "}
-                <span className="text-teal">Digital Transformation</span>
-              </h2>
-              <p className="mx-auto mt-4 max-w-2xl text-center text-ink-soft">
-                Our education and capacity-building objectives are aligned with the broader
-                goals of key national initiatives.
-              </p>
-
-              <div className="mt-12 grid grid-cols-1 divide-y divide-line sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-5 lg:divide-x">
-                {initiatives.map((item) => (
-                  <div key={item.name} className="px-5 py-8 text-center lg:py-0">
-                    {/* Logo slot — drop an official mark in here if licensed to use it */}
-                    <EmblemIcon className="mx-auto h-12 w-12 text-teal" />
-                    <h3 className="mt-5 font-display text-[1.0625rem] font-bold tracking-tight text-navy">
-                      {item.name}
-                    </h3>
-                    <p className="mt-3 text-[0.9375rem] leading-relaxed text-ink-soft">
-                      {item.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </Reveal>
-
-          <Reveal delay={80}>
-            <div className="mt-6 grid grid-cols-1 divide-y divide-white/15 overflow-hidden rounded-[var(--radius)] bg-navy md:grid-cols-2 md:divide-y-0 lg:grid-cols-4 lg:divide-x">
-              {alignmentPoints.map((point, i) => {
-                const Icon = alignmentIcons[i];
-                return (
-                  <div key={point} className="flex items-center gap-4 px-5 py-5">
-                    <Icon className="h-6 w-6 shrink-0 text-teal-bright" />
-                    <p className="text-[0.875rem] font-semibold leading-snug text-white">
-                      {point}
-                    </p>
-                  </div>
-                );
-              })}
-            </div>
-
-            <p className="mx-auto mt-8 max-w-3xl text-center text-[0.8125rem] leading-relaxed text-ink-faint">
-              {ALIGNMENT_DISCLAIMER}
-            </p>
           </Reveal>
         </div>
       </section>
