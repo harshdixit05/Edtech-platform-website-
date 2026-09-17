@@ -6,7 +6,7 @@ import { BrandFigure } from "@/components/brand-figure";
 import { supportPoints, DONATION_DISCLAIMER } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Support Our Mission",
+  title: "Donate",
   description:
     "Support accessible FinTech education in India. Contributions to Intellimindz Foundation are eligible for tax exemption under Section 80G, subject to applicable provisions.",
 };

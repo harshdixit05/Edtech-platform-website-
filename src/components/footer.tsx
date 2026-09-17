@@ -6,7 +6,8 @@ const columns = [
   {
     heading: "Learn",
     links: [
-      { href: "/courses", label: "FinTech Courses" },
+      { href: "/courses", label: "Courses" },
+      { href: "/categories", label: "Categories" },
       { href: "/learning", label: "Learning Levels" },
       { href: EXTERNAL.catalogue, label: "Course Catalogue" },
     ],
@@ -14,17 +15,18 @@ const columns = [
   {
     heading: "Foundation",
     links: [
-      { href: "/about", label: "About" },
+      { href: "/about", label: "About Us" },
       { href: "/impact", label: "Impact" },
-      { href: "/insights", label: "Insights" },
+      { href: "/knowledge-hub", label: "Knowledge Hub" },
     ],
   },
   {
     heading: "Engage",
     links: [
-      { href: "/support", label: "Support Us" },
+      { href: "/donate", label: "Donate" },
       { href: "/partnerships", label: "Partnerships" },
-      { href: "/contact", label: "Contact" },
+      { href: "/contact", label: "Contact Us" },
+      { href: "/login", label: "Login" },
     ],
   },
 ];

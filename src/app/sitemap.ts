@@ -2,14 +2,16 @@ import type { MetadataRoute } from "next";
 
 const routes = [
   "",
-  "courses",
-  "learning",
-  "impact",
   "about",
-  "support",
+  "courses",
+  "categories",
+  "learning",
+  "knowledge-hub",
+  "impact",
+  "donate",
   "partnerships",
-  "insights",
   "contact",
+  "login",
   "privacy",
   "terms",
 ];

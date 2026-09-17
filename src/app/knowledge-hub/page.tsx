@@ -4,7 +4,7 @@ import { Reveal } from "@/components/reveal";
 import { insights } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Insights",
+  title: "Knowledge Hub",
   description:
     "Plain-language writing on FinTech, digital payments, open finance and AI in finance from Intellimindz Foundation.",
 };
@@ -28,9 +28,9 @@ export default function InsightsPage() {
 
         <div className="relative mx-auto max-w-[1200px] px-6 pb-16 pt-14 md:px-10 md:pb-20 md:pt-20">
           <Reveal>
-            <SectionLabel>Insights</SectionLabel>
+            <SectionLabel>Knowledge Hub</SectionLabel>
             <h1 className="t-hero mt-7 max-w-[13ch] text-balance text-navy">
-              FinTech, plainly written.
+              FinTech, plainly written
             </h1>
           </Reveal>
         </div>

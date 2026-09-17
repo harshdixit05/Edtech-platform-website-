@@ -129,7 +129,7 @@ export default function PartnershipsPage() {
               <Button href="/contact" variant="invert">
                 Talk to us
               </Button>
-              <Button href="/support" variant="ghost">
+              <Button href="/donate" variant="ghost">
                 Support the mission
               </Button>
             </div>

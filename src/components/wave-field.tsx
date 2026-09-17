@@ -4,11 +4,7 @@
  * loops visibly. Stops entirely under prefers-reduced-motion.
  */
 
-const layers = [
-  { y: 120, amp: 34, strokes: 7, gap: 7, duration: 42, opacity: 0.5 },
-  { y: 210, amp: 46, strokes: 9, gap: 6, duration: 58, opacity: 0.38 },
-  { y: 310, amp: 28, strokes: 6, gap: 8, duration: 34, opacity: 0.3 },
-];
+const layers = [{ y: 190, amp: 42, strokes: 9, gap: 7, duration: 48, opacity: 0.55 }];
 
 /** One seamless sine-ish path repeated twice across a 2400-unit span. */
 function wavePath(y: number, amp: number) {

@@ -6,11 +6,13 @@ import { useEffect, useState } from "react";
 import { Logo } from "./logo";
 
 const links = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About Us" },
   { href: "/courses", label: "Courses" },
-  { href: "/learning", label: "Learning" },
-  { href: "/impact", label: "Impact" },
-  { href: "/about", label: "About" },
-  { href: "/support", label: "Support Us" },
+  { href: "/categories", label: "Categories" },
+  { href: "/knowledge-hub", label: "Knowledge Hub" },
+  { href: "/donate", label: "Donate" },
+  { href: "/contact", label: "Contact Us" },
 ];
 
 export function Nav() {
@@ -35,19 +37,19 @@ export function Nav() {
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled || open
-          ? "border-b border-line bg-white/90 backdrop-blur-md"
+          ? "border-b border-line bg-white/95 backdrop-blur-md"
           : "border-b border-line/60 bg-white"
       }`}
     >
-      <div className="mx-auto flex max-w-[1200px] items-center justify-between px-6 py-4 md:px-10">
+      <div className="mx-auto flex max-w-[1200px] items-center justify-between gap-6 px-6 py-3.5 md:px-10">
         <Logo />
 
-        <nav className="hidden items-center gap-9 lg:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-6 xl:flex" aria-label="Primary">
           {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={`link-underline text-[0.9375rem] font-medium transition-colors ${
+              className={`link-underline whitespace-nowrap text-[0.875rem] font-medium transition-colors ${
                 pathname === link.href ? "text-teal" : "text-ink-soft hover:text-navy"
               }`}
             >
@@ -56,16 +58,16 @@ export function Nav() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-5 lg:flex">
+        <div className="hidden items-center gap-4 xl:flex">
           <Link
-            href="/contact"
-            className="link-underline text-[0.9375rem] font-medium text-ink-soft hover:text-navy"
+            href="/login"
+            className="whitespace-nowrap rounded-[var(--radius-sm)] border border-line-strong px-4 py-2.5 text-[0.875rem] font-semibold text-navy transition-colors duration-300 hover:border-teal hover:text-teal"
           >
-            Contact
+            Login
           </Link>
           <Link
             href="/courses"
-            className="group inline-flex items-center gap-2 rounded-[var(--radius-sm)] bg-navy px-5 py-3 text-[0.9375rem] font-semibold text-white transition-colors duration-300 hover:bg-teal"
+            className="group inline-flex items-center gap-2 whitespace-nowrap rounded-[var(--radius-sm)] bg-navy px-5 py-2.5 text-[0.875rem] font-semibold text-white transition-colors duration-300 hover:bg-teal"
           >
             Explore Courses
             <span aria-hidden className="arrow-shift">
@@ -80,7 +82,7 @@ export function Nav() {
           aria-expanded={open}
           aria-controls="mobile-nav"
           aria-label={open ? "Close menu" : "Open menu"}
-          className="flex h-10 w-10 flex-col items-center justify-center gap-[6px] lg:hidden"
+          className="flex h-10 w-10 flex-col items-center justify-center gap-[6px] xl:hidden"
         >
           <span
             className={`h-[2px] w-7 bg-navy transition-transform duration-300 ${
@@ -97,8 +99,8 @@ export function Nav() {
 
       <div
         id="mobile-nav"
-        className={`overflow-hidden border-t bg-white transition-[max-height,border-color] duration-300 lg:hidden ${
-          open ? "max-h-[480px] border-line" : "max-h-0 border-transparent"
+        className={`overflow-hidden border-t bg-white transition-[max-height,border-color] duration-300 xl:hidden ${
+          open ? "max-h-[620px] border-line" : "max-h-0 border-transparent"
         }`}
       >
         <nav className="flex flex-col px-6 pb-6 pt-2" aria-label="Mobile">
@@ -113,18 +115,20 @@ export function Nav() {
               {link.label}
             </Link>
           ))}
-          <Link
-            href="/contact"
-            className="border-b border-line py-3.5 text-lg font-semibold text-navy"
-          >
-            Contact
-          </Link>
-          <Link
-            href="/courses"
-            className="mt-6 rounded-[var(--radius-sm)] bg-navy px-6 py-3.5 text-center text-[0.9375rem] font-semibold text-white"
-          >
-            Explore FinTech Courses →
-          </Link>
+          <div className="mt-6 flex flex-col gap-3">
+            <Link
+              href="/login"
+              className="rounded-[var(--radius-sm)] border border-line-strong px-6 py-3.5 text-center text-[0.9375rem] font-semibold text-navy"
+            >
+              Login
+            </Link>
+            <Link
+              href="/courses"
+              className="rounded-[var(--radius-sm)] bg-navy px-6 py-3.5 text-center text-[0.9375rem] font-semibold text-white"
+            >
+              Explore Courses →
+            </Link>
+          </div>
         </nav>
       </div>
     </header>
