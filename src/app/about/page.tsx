@@ -52,8 +52,8 @@ export default function AboutPage() {
 
           <Reveal delay={120}>
             <BrandFigure
-              src="/images/catalogue.jpg"
-              alt="Structured programme architecture across FinTech domains"
+              src="/images/learners.jpg"
+              alt="Learners discussing coursework together around a laptop"
               className="aspect-[4/3] w-full"
             />
           </Reveal>
