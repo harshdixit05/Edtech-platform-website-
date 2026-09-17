@@ -27,6 +27,7 @@ const columns = [
       { href: "/partnerships", label: "Partnerships" },
       { href: "/contact", label: "Contact Us" },
       { href: "/login", label: "Login" },
+      { href: "/signup", label: "Create account" },
     ],
   },
 ];

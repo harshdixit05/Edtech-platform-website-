@@ -2,35 +2,35 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { AuthShell } from "@/components/auth/auth-shell";
-import { LoginForm } from "@/components/auth/login-form";
+import { SignupForm } from "@/components/auth/signup-form";
 import { getCurrentUser } from "@/lib/auth/session";
 
 export const metadata: Metadata = {
-  title: "Sign in",
-  description: "Sign in to continue your FinTech learning with Intellimindz Foundation.",
+  title: "Create an account",
+  description: "Create your Intellimindz Foundation account to start learning FinTech.",
   robots: { index: false, follow: false },
 };
 
 export const dynamic = "force-dynamic";
 
-export default async function LoginPage() {
+export default async function SignupPage() {
   if (await getCurrentUser()) redirect("/account");
 
   return (
     <AuthShell
-      title="Welcome"
-      accent="back"
-      intro="Sign in to continue your learning."
+      title="Start"
+      accent="learning"
+      intro="Create an account to track your progress across courses."
       footer={
         <>
-          New here?{" "}
-          <Link href="/signup" className="link-underline font-semibold text-navy">
-            Create an account
+          Already have an account?{" "}
+          <Link href="/login" className="link-underline font-semibold text-navy">
+            Sign in
           </Link>
         </>
       }
     >
-      <LoginForm />
+      <SignupForm />
     </AuthShell>
   );
 }
