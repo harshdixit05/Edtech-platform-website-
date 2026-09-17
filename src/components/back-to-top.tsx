@@ -2,7 +2,11 @@
 
 import { useEffect, useState } from "react";
 
-export function BackToTop() {
+/**
+ * `raised` lifts the button clear of the advisor launcher, which occupies the
+ * same corner when the advisor is configured.
+ */
+export function BackToTop({ raised = false }: { raised?: boolean }) {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -18,7 +22,7 @@ export function BackToTop() {
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       aria-label="Back to top"
       tabIndex={visible ? 0 : -1}
-      className={`fixed bottom-6 right-6 z-40 flex h-11 w-11 items-center justify-center rounded-full border border-line bg-white text-navy shadow-[0_12px_30px_-16px_rgba(15,23,56,0.6)] transition-all duration-300 hover:border-teal hover:text-teal ${
+      className={`fixed ${raised ? "bottom-[5.5rem]" : "bottom-6"} right-6 z-40 flex h-11 w-11 items-center justify-center rounded-full border border-line bg-white text-navy shadow-[0_12px_30px_-16px_rgba(15,23,56,0.6)] transition-all duration-300 hover:border-teal hover:text-teal ${
         visible ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-3 opacity-0"
       }`}
     >

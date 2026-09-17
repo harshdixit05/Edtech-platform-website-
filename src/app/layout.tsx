@@ -5,6 +5,8 @@ import { Footer } from "@/components/footer";
 import { AnnouncementBar } from "@/components/announcement-bar";
 import { ScrollProgress } from "@/components/scroll-progress";
 import { BackToTop } from "@/components/back-to-top";
+import { Advisor } from "@/components/advisor";
+import { isAdvisorConfigured } from "@/lib/advisor/config";
 import { siteUrl, isProductionSite } from "@/lib/site";
 import "./globals.css";
 
@@ -90,7 +92,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           {children}
         </main>
         <Footer />
-        <BackToTop />
+        <BackToTop raised={isAdvisorConfigured()} />
+        <Advisor />
       </body>
     </html>
   );
