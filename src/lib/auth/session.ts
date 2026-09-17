@@ -2,7 +2,7 @@ import "server-only";
 import { cache } from "react";
 import { cookies, headers } from "next/headers";
 import { and, eq, lt } from "drizzle-orm";
-import { db } from "@/db";
+import { db, isDatabaseConfigured } from "@/db";
 import { sessions, users, type User } from "@/db/schema";
 import { generateToken, hashToken, expiresIn, TOKEN_TTL } from "./tokens";
 
@@ -47,6 +47,8 @@ export async function createSession(userId: string): Promise<void> {
  * so layouts, pages and actions share one database round trip.
  */
 export const getCurrentUser = cache(async (): Promise<SessionUser | null> => {
+  if (!isDatabaseConfigured()) return null;
+
   const token = (await cookies()).get(SESSION_COOKIE)?.value;
   if (!token) return null;
 

@@ -10,6 +10,15 @@ const globalForDb = globalThis as unknown as {
   __imfSql?: ReturnType<typeof postgres>;
 };
 
+/**
+ * A deployment without DATABASE_URL is a UI preview: the marketing site is
+ * fully functional and the account screens render their forms, but nothing
+ * can be stored. Callers use this to degrade rather than throw.
+ */
+export function isDatabaseConfigured(): boolean {
+  return Boolean(process.env.DATABASE_URL);
+}
+
 function client() {
   const url = process.env.DATABASE_URL;
   if (!url) {
