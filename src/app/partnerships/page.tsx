@@ -56,7 +56,7 @@ export default function PartnershipsPage() {
         <div className="grid-bg" />
         <div className="glow glow-teal -left-20 -top-24 h-96 w-96 opacity-45" />
 
-        <div className="relative mx-auto max-w-[1440px] px-6 pb-16 pt-14 md:px-10 md:pb-20 md:pt-20">
+        <div className="relative mx-auto max-w-[1200px] px-6 pb-16 pt-14 md:px-10 md:pb-20 md:pt-20">
           <Reveal>
             <SectionLabel>Partnerships</SectionLabel>
             <h1 className="t-hero mt-7 max-w-[14ch] text-balance text-navy">
@@ -73,7 +73,7 @@ export default function PartnershipsPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-[1440px] px-6 py-20 md:px-10 md:py-28">
+      <section className="mx-auto max-w-[1200px] px-6 py-20 md:px-10 md:py-28">
         <Reveal>
           <SectionLabel>Who we work with</SectionLabel>
           <h2 className="t-h2 mt-6 max-w-[16ch] text-balance text-navy">
@@ -81,10 +81,10 @@ export default function PartnershipsPage() {
           </h2>
         </Reveal>
 
-        <div className="mt-14 grid grid-cols-1 gap-px border border-line bg-line sm:grid-cols-2">
+        <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2">
           {partners.map((partner, i) => (
             <Reveal key={partner.title} delay={i * 70}>
-              <article className="card-lift h-full border border-transparent bg-white p-9">
+              <article className="card card-lift h-full p-7">
                 <h3 className="t-h3 text-navy">{partner.title}</h3>
                 <span aria-hidden className="mt-5 block h-[2px] w-10 bg-teal" />
                 <p className="mt-5 max-w-md text-[0.9375rem] leading-relaxed text-ink-soft">
@@ -100,20 +100,20 @@ export default function PartnershipsPage() {
         <div className="grid-bg grid-bg-invert" />
         <div className="glow glow-teal right-0 top-10 h-80 w-80 opacity-25" />
 
-        <div className="relative mx-auto max-w-[1440px] px-6 py-20 md:px-10 md:py-28">
+        <div className="relative mx-auto max-w-[1200px] px-6 py-20 md:px-10 md:py-28">
           <Reveal>
             <SectionLabel invert>How it works</SectionLabel>
             <h2 className="t-h2 mt-6 max-w-[16ch] text-balance">Three steps to a programme.</h2>
           </Reveal>
 
-          <div className="mt-14 grid grid-cols-1 gap-px bg-white/10 md:grid-cols-3">
+          <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-3">
             {process.map((step, i) => (
               <Reveal key={step.step} delay={i * 80}>
-                <article className="h-full bg-navy-ink p-9 transition-colors duration-500 hover:bg-navy">
-                  <span className="font-display text-sm font-extrabold tracking-widest text-teal">
+                <article className="h-full rounded-[var(--radius)] border border-line-invert bg-navy p-7 transition-colors duration-500 hover:border-teal/50">
+                  <span className="font-display text-sm font-bold tracking-widest text-teal">
                     {step.step}
                   </span>
-                  <h3 className="mt-6 font-display text-2xl font-extrabold tracking-tight text-white">
+                  <h3 className="mt-6 font-display text-lg font-bold tracking-tight text-white">
                     {step.title}
                   </h3>
                   <p className="mt-4 text-[0.9375rem] leading-relaxed text-white/60">

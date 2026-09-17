@@ -18,7 +18,7 @@ export default function ImpactPage() {
         <div className="grid-bg" />
         <div className="glow glow-teal -right-24 -top-24 h-96 w-96 opacity-45" />
 
-        <div className="relative mx-auto grid max-w-[1440px] grid-cols-1 gap-14 px-6 pb-16 pt-14 md:px-10 md:pb-20 md:pt-20 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+        <div className="relative mx-auto grid max-w-[1200px] grid-cols-1 gap-14 px-6 pb-16 pt-14 md:px-10 md:pb-20 md:pt-20 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <Reveal>
             <SectionLabel>Impact</SectionLabel>
             <h1 className="t-hero mt-7 max-w-[14ch] text-balance text-navy">
@@ -41,15 +41,15 @@ export default function ImpactPage() {
       </section>
 
       {/* Initiatives */}
-      <section className="mx-auto max-w-[1440px] px-6 py-20 md:px-10 md:py-28">
-        <div className="flex flex-col gap-px border border-line bg-line">
+      <section className="mx-auto max-w-[1200px] px-6 py-20 md:px-10 md:py-28">
+        <div className="flex flex-col gap-4">
           {initiatives.map((item, i) => (
             <Reveal key={item.name} delay={i * 60}>
-              <article className="group grid grid-cols-1 gap-5 bg-white p-8 transition-colors duration-500 hover:bg-surface-2 md:grid-cols-[80px_1fr_1.4fr] md:items-center md:p-10">
-                <span className="font-display text-sm font-extrabold tracking-widest text-teal">
+              <article className="group card grid grid-cols-1 gap-5 p-7 transition-colors duration-500 hover:border-teal/40 md:grid-cols-[60px_1fr_1.4fr] md:items-center md:p-8">
+                <span className="font-display text-sm font-bold tracking-widest text-teal">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <h2 className="font-display text-2xl font-extrabold tracking-tight text-navy md:text-3xl">
+                <h2 className="font-display text-lg font-bold tracking-tight text-navy md:text-xl">
                   {item.name}
                 </h2>
                 <p className="text-ink-soft">{item.description}</p>
@@ -64,7 +64,7 @@ export default function ImpactPage() {
         <div className="grid-bg grid-bg-invert" />
         <div className="glow glow-teal right-10 top-10 h-80 w-80 opacity-25" />
 
-        <div className="relative mx-auto max-w-[1440px] px-6 py-20 md:px-10 md:py-28">
+        <div className="relative mx-auto max-w-[1200px] px-6 py-20 md:px-10 md:py-28">
           <Reveal>
             <SectionLabel invert>How we contribute</SectionLabel>
             <h2 className="t-h2 mt-6 max-w-[18ch] text-balance">
@@ -72,14 +72,14 @@ export default function ImpactPage() {
             </h2>
           </Reveal>
 
-          <ul className="mt-14 grid grid-cols-1 gap-px bg-white/10 sm:grid-cols-2">
+          <ul className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2">
             {alignmentPoints.map((point, i) => (
               <Reveal key={point} delay={i * 70}>
-                <li className="flex h-full items-start gap-5 bg-navy-ink p-8 transition-colors duration-500 hover:bg-navy">
-                  <span className="font-display text-sm font-extrabold tracking-widest text-teal">
+                <li className="flex h-full items-start gap-4 rounded-[var(--radius)] border border-line-invert bg-navy p-7">
+                  <span className="font-display text-sm font-bold tracking-widest text-teal">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <span className="font-display text-xl font-bold leading-snug tracking-tight text-white">
+                  <span className="font-display text-[1.0625rem] font-semibold leading-snug tracking-tight text-white">
                     {point}
                   </span>
                 </li>
@@ -94,7 +94,7 @@ export default function ImpactPage() {
       </section>
 
       {/* Pillars recap */}
-      <section className="mx-auto max-w-[1440px] px-6 py-20 md:px-10 md:py-28">
+      <section className="mx-auto max-w-[1200px] px-6 py-20 md:px-10 md:py-28">
         <Reveal>
           <SectionLabel>Our commitments</SectionLabel>
           <h2 className="t-h2 mt-6 max-w-[16ch] text-balance text-navy">
@@ -102,10 +102,10 @@ export default function ImpactPage() {
           </h2>
         </Reveal>
 
-        <div className="mt-14 grid grid-cols-1 gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {pillars.map((pillar, i) => (
             <Reveal key={pillar.title} delay={i * 70}>
-              <article className="card-lift h-full border border-transparent bg-white p-8">
+              <article className="card card-lift h-full p-7">
                 <h3 className="t-h3 text-navy">{pillar.title}</h3>
                 <span aria-hidden className="mt-5 block h-[2px] w-10 bg-teal" />
                 <p className="mt-5 text-[0.9375rem] leading-relaxed text-ink-soft">

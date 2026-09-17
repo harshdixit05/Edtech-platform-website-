@@ -15,8 +15,12 @@
   --color-teal-deep: #008b88;
 
   --color-surface: #ffffff;
-  --color-surface-2: #f4f6fb;
-  --color-surface-3: #eaeef7;
+  --color-surface-2: #f5f9fa;
+  --color-surface-3: #eef4f7;
+  --color-tint: #f2f8f9;
+
+  --radius: 12px;
+  --radius-sm: 8px;
 
   --color-ink: #0f1738;
   --color-ink-soft: #4a5578;
@@ -43,6 +47,10 @@
   --color-surface: var(--color-surface);
   --color-surface-2: var(--color-surface-2);
   --color-surface-3: var(--color-surface-3);
+  --color-tint: var(--color-tint);
+
+  --radius-card: var(--radius);
+  --radius-btn: var(--radius-sm);
 
   --color-ink: var(--color-ink);
   --color-ink-soft: var(--color-ink-soft);
@@ -69,9 +77,9 @@ body {
   background: var(--color-surface);
   color: var(--color-ink);
   font-family: var(--font-sans);
-  font-size: 1.0625rem;
-  line-height: 1.6;
-  letter-spacing: -0.005em;
+  font-size: 1rem;
+  line-height: 1.65;
+  letter-spacing: -0.003em;
 }
 
 h1,
@@ -79,9 +87,9 @@ h2,
 h3,
 h4 {
   font-family: var(--font-display);
-  font-weight: 800;
-  letter-spacing: -0.035em;
-  line-height: 1.02;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.16;
 }
 
 ::selection {
@@ -95,25 +103,31 @@ h4 {
   border-radius: 2px;
 }
 
-/* --- Type scale ------------------------------------------------ */
+/* --- Type scale -------------------------------------------------
+   Deliberately restrained: the largest heading on the site is ~52px,
+   body copy stays at 16px, and line length is capped per block.
+   ---------------------------------------------------------------- */
 .t-hero {
-  font-size: clamp(2.75rem, 6.4vw, 5.5rem);
+  font-size: clamp(2.125rem, 3.5vw, 3.25rem);
+  line-height: 1.12;
 }
 .t-h2 {
-  font-size: clamp(2.125rem, 4vw, 3.5rem);
+  font-size: clamp(1.625rem, 2.4vw, 2.25rem);
+  line-height: 1.18;
 }
 .t-h3 {
-  font-size: clamp(1.375rem, 2vw, 1.875rem);
-  letter-spacing: -0.025em;
+  font-size: 1.1875rem;
+  line-height: 1.35;
+  letter-spacing: -0.015em;
 }
 .t-lead {
-  font-size: clamp(1.0625rem, 1.35vw, 1.3125rem);
-  line-height: 1.55;
+  font-size: clamp(1rem, 1.05vw, 1.125rem);
+  line-height: 1.65;
 }
 .t-eyebrow {
-  font-size: 0.75rem;
+  font-size: 0.6875rem;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
@@ -218,6 +232,24 @@ h4 {
   animation-play-state: paused;
 }
 
+/* Flowing wave field behind the hero — slow, seamless, low contrast */
+@keyframes wave-drift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.wave-layer {
+  position: absolute;
+  left: 0;
+  width: 200%;
+  animation: wave-drift linear infinite;
+  will-change: transform;
+}
+
 @keyframes float-soft {
   0%,
   100% {
@@ -286,9 +318,15 @@ h4 {
 }
 
 .card-lift:hover {
-  transform: translateY(-4px);
-  border-color: var(--color-teal);
-  box-shadow: 0 18px 40px -24px rgba(15, 23, 56, 0.45);
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--color-teal) 55%, transparent);
+  box-shadow: 0 16px 36px -22px rgba(15, 23, 56, 0.35);
+}
+
+.card {
+  border-radius: var(--radius);
+  border: 1px solid var(--color-line);
+  background: #fff;
 }
 
 .arrow-shift {

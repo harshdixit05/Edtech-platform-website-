@@ -14,7 +14,7 @@ export default function ContactPage() {
       <div className="grid-bg" />
       <div className="glow glow-teal -left-24 -top-24 h-96 w-96 opacity-40" />
 
-      <div className="relative mx-auto max-w-[1440px] px-6 pb-24 pt-14 md:px-10 md:pb-32 md:pt-20">
+      <div className="relative mx-auto max-w-[1200px] px-6 pb-24 pt-14 md:px-10 md:pb-32 md:pt-20">
         <Reveal>
           <SectionLabel>Contact</SectionLabel>
           <h1 className="t-hero mt-7 text-navy">Let&rsquo;s talk.</h1>
@@ -28,7 +28,7 @@ export default function ContactPage() {
                 {/* Placeholder — replace with the Foundation's official address */}
                 <a
                   href="mailto:hello@intellimindz.in"
-                  className="link-underline mt-3 inline-block font-display text-xl font-extrabold tracking-tight text-navy"
+                  className="link-underline mt-3 inline-block font-display text-xl font-bold tracking-tight text-navy"
                 >
                   hello@intellimindz.in
                 </a>

@@ -35,11 +35,11 @@ export function Nav() {
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled || open
-          ? "border-b border-line bg-white/85 backdrop-blur-md"
-          : "border-b border-transparent"
+          ? "border-b border-line bg-white/90 backdrop-blur-md"
+          : "border-b border-line/60 bg-white"
       }`}
     >
-      <div className="mx-auto flex max-w-[1440px] items-center justify-between px-6 py-4 md:px-10">
+      <div className="mx-auto flex max-w-[1200px] items-center justify-between px-6 py-4 md:px-10">
         <Logo />
 
         <nav className="hidden items-center gap-9 lg:flex" aria-label="Primary">
@@ -47,8 +47,8 @@ export function Nav() {
             <Link
               key={link.href}
               href={link.href}
-              className={`link-underline text-[0.9375rem] font-semibold tracking-tight transition-colors ${
-                pathname === link.href ? "text-teal" : "text-ink hover:text-navy"
+              className={`link-underline text-[0.9375rem] font-medium transition-colors ${
+                pathname === link.href ? "text-teal" : "text-ink-soft hover:text-navy"
               }`}
             >
               {link.label}
@@ -59,15 +59,15 @@ export function Nav() {
         <div className="hidden items-center gap-5 lg:flex">
           <Link
             href="/contact"
-            className="link-underline text-[0.9375rem] font-semibold tracking-tight text-ink-soft hover:text-navy"
+            className="link-underline text-[0.9375rem] font-medium text-ink-soft hover:text-navy"
           >
             Contact
           </Link>
           <Link
             href="/courses"
-            className="group bg-navy px-6 py-3.5 text-[0.9375rem] font-semibold tracking-tight text-white transition-colors duration-300 hover:bg-teal"
+            className="group inline-flex items-center gap-2 rounded-[var(--radius-sm)] bg-navy px-5 py-3 text-[0.9375rem] font-semibold text-white transition-colors duration-300 hover:bg-teal"
           >
-            Explore FinTech Courses{" "}
+            Explore Courses
             <span aria-hidden className="arrow-shift">
               →
             </span>
@@ -106,7 +106,7 @@ export function Nav() {
             <Link
               key={link.href}
               href={link.href}
-              className={`border-b border-line py-4 text-xl font-bold tracking-tight ${
+              className={`border-b border-line py-3.5 text-lg font-semibold ${
                 pathname === link.href ? "text-teal" : "text-navy"
               }`}
             >
@@ -115,13 +115,13 @@ export function Nav() {
           ))}
           <Link
             href="/contact"
-            className="border-b border-line py-4 text-xl font-bold tracking-tight text-navy"
+            className="border-b border-line py-3.5 text-lg font-semibold text-navy"
           >
             Contact
           </Link>
           <Link
             href="/courses"
-            className="mt-6 bg-navy px-6 py-4 text-center text-base font-semibold text-white"
+            className="mt-6 rounded-[var(--radius-sm)] bg-navy px-6 py-3.5 text-center text-[0.9375rem] font-semibold text-white"
           >
             Explore FinTech Courses →
           </Link>

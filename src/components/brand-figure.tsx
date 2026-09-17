@@ -18,7 +18,7 @@ export function BrandFigure({
   sizes?: string;
 }) {
   return (
-    <figure className={`group relative overflow-hidden bg-surface-2 ${className}`}>
+    <figure className={`group relative overflow-hidden rounded-[var(--radius)] bg-surface-2 ${className}`}>
       <Image
         src={src}
         alt={alt}

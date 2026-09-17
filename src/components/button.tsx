@@ -4,7 +4,7 @@ import type { ComponentProps } from "react";
 type Variant = "primary" | "outline" | "invert" | "ghost";
 
 const base =
-  "group inline-flex items-center gap-2.5 px-7 py-4 text-[0.9375rem] font-semibold tracking-tight transition-all duration-300";
+  "group inline-flex items-center gap-2 rounded-[var(--radius-sm)] px-6 py-3.5 text-[0.9375rem] font-semibold transition-all duration-300";
 
 const variants: Record<Variant, string> = {
   primary: "bg-navy text-white hover:bg-teal",

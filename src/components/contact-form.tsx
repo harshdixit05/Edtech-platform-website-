@@ -23,7 +23,7 @@ export function ContactForm() {
   if (submitted) {
     return (
       <div className="border-t-2 border-teal pt-9">
-        <p className="font-display text-3xl font-extrabold tracking-tight text-navy">
+        <p className="font-display text-xl font-bold tracking-tight text-navy">
           Thank you.
         </p>
         <p className="mt-3 max-w-md text-ink-soft">
@@ -77,7 +77,7 @@ export function ContactForm() {
 
       <button
         type="submit"
-        className="group inline-flex items-center gap-2.5 self-start bg-navy px-7 py-4 text-[0.9375rem] font-semibold tracking-tight text-white transition-colors duration-300 hover:bg-teal"
+        className="group inline-flex items-center gap-2.5 self-start rounded-[var(--radius-sm)] bg-navy px-6 py-3.5 text-[0.9375rem] font-semibold text-white transition-colors duration-300 hover:bg-teal"
       >
         Send message
         <span aria-hidden className="arrow-shift">

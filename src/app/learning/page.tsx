@@ -17,7 +17,7 @@ export default function LearningPage() {
         <div className="grid-bg" />
         <div className="glow glow-teal -left-20 -top-24 h-96 w-96 opacity-45" />
 
-        <div className="relative mx-auto max-w-[1440px] px-6 pb-16 pt-14 md:px-10 md:pb-20 md:pt-20">
+        <div className="relative mx-auto max-w-[1200px] px-6 pb-16 pt-14 md:px-10 md:pb-20 md:pt-20">
           <Reveal>
             <SectionLabel>Learning model</SectionLabel>
             <h1 className="t-hero mt-7 max-w-[15ch] text-balance text-navy">
@@ -32,17 +32,17 @@ export default function LearningPage() {
       </section>
 
       {/* Ladder */}
-      <section className="mx-auto max-w-[1440px] px-6 py-20 md:px-10 md:py-28">
-        <div className="flex flex-col gap-px border border-line bg-line">
+      <section className="mx-auto max-w-[1200px] px-6 py-20 md:px-10 md:py-28">
+        <div className="flex flex-col gap-4">
           {levels.map((level, i) => (
             <Reveal key={level.step} delay={i * 70}>
-              <article className="group grid grid-cols-1 gap-6 bg-white p-8 transition-colors duration-500 hover:bg-surface-2 md:grid-cols-[90px_1fr_1fr_1fr] md:items-center md:p-10">
-                <span className="font-display text-sm font-extrabold tracking-widest text-teal">
+              <article className="group card grid grid-cols-1 gap-6 p-7 transition-colors duration-500 hover:border-teal/40 md:grid-cols-[70px_1fr_1fr_1fr] md:items-center md:p-8">
+                <span className="font-display text-sm font-bold tracking-widest text-teal">
                   {level.step}
                 </span>
 
                 <div>
-                  <h2 className="font-display text-3xl font-extrabold tracking-tight text-navy md:text-4xl">
+                  <h2 className="font-display text-xl font-bold tracking-tight text-navy md:text-2xl">
                     {level.name}
                   </h2>
                   <span
@@ -54,7 +54,7 @@ export default function LearningPage() {
 
                 <div>
                   <p className="t-eyebrow text-ink-faint">Commitment</p>
-                  <p className="mt-2 font-display text-xl font-extrabold tracking-tight text-navy">
+                  <p className="mt-2 font-display text-base font-bold tracking-tight text-navy">
                     {level.hours}
                   </p>
                 </div>
@@ -72,7 +72,7 @@ export default function LearningPage() {
 
       {/* Formats */}
       <section className="border-y border-line bg-surface-2">
-        <div className="mx-auto max-w-[1440px] px-6 py-20 md:px-10 md:py-28">
+        <div className="mx-auto max-w-[1200px] px-6 py-20 md:px-10 md:py-28">
           <Reveal>
             <SectionLabel>Formats</SectionLabel>
             <h2 className="t-h2 mt-6 max-w-[16ch] text-balance text-navy">
@@ -80,10 +80,10 @@ export default function LearningPage() {
             </h2>
           </Reveal>
 
-          <div className="mt-14 grid grid-cols-1 gap-px border border-line bg-line md:grid-cols-3">
+          <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-3">
             {formats.map((format, i) => (
               <Reveal key={format.name} delay={i * 80}>
-                <article className="h-full bg-white p-9">
+                <article className="card h-full p-7">
                   <h3 className="t-h3 text-navy">{format.name}</h3>
                   <span aria-hidden className="mt-5 block h-[2px] w-10 bg-teal" />
                   <p className="mt-5 text-[0.9375rem] leading-relaxed text-ink-soft">
@@ -97,7 +97,7 @@ export default function LearningPage() {
       </section>
 
       {/* Audiences */}
-      <section className="mx-auto max-w-[1440px] px-6 py-20 md:px-10 md:py-28">
+      <section className="mx-auto max-w-[1200px] px-6 py-20 md:px-10 md:py-28">
         <Reveal>
           <SectionLabel>Who learns with us</SectionLabel>
           <h2 className="t-h2 mt-6 max-w-[16ch] text-balance text-navy">
@@ -107,7 +107,7 @@ export default function LearningPage() {
             {audiences.map((audience) => (
               <li
                 key={audience}
-                className="border border-line px-6 py-4 font-display text-[1.0625rem] font-bold tracking-tight text-navy transition-colors duration-300 hover:border-teal hover:text-teal"
+                className="rounded-full border border-line px-5 py-2.5 text-[0.9375rem] font-medium text-navy transition-colors duration-300 hover:border-teal hover:text-teal"
               >
                 {audience}
               </li>
@@ -118,7 +118,7 @@ export default function LearningPage() {
 
       <section className="surface-navy relative overflow-hidden">
         <div className="grid-bg grid-bg-invert" />
-        <div className="relative mx-auto flex max-w-[1440px] flex-col items-start gap-8 px-6 py-20 md:px-10 md:py-24 lg:flex-row lg:items-center lg:justify-between">
+        <div className="relative mx-auto flex max-w-[1200px] flex-col items-start gap-8 px-6 py-20 md:px-10 md:py-24 lg:flex-row lg:items-center lg:justify-between">
           <h2 className="t-h2 max-w-[18ch] text-balance">Find your starting level.</h2>
           <div className="flex flex-wrap gap-4">
             <Button href="/courses" variant="invert">

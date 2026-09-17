@@ -65,15 +65,15 @@ export function Logo({
         <Sparkle className="absolute -top-2 left-[52%] h-2.5 w-2.5 text-teal" />
         <Sparkle className="absolute -top-3.5 left-[60%] h-3.5 w-3.5 text-teal" delay={900} />
         <span
-          className={`font-display text-[1.45rem] font-extrabold tracking-[-0.045em] ${wordNavy}`}
+          className={`font-display text-[1.45rem] font-bold tracking-[-0.045em] ${wordNavy}`}
         >
           Intelli
         </span>
-        <span className="font-display text-[1.45rem] font-extrabold tracking-[-0.045em] text-teal">
+        <span className="font-display text-[1.45rem] font-bold tracking-[-0.045em] text-teal">
           mind
         </span>
         <MindGlyph className="-ml-[1px] h-[1.5rem] w-[1.5rem] text-teal transition-transform duration-500 group-hover:-translate-y-0.5" />
-        <span className="-ml-[3px] font-display text-[1.45rem] font-extrabold tracking-[-0.045em] text-teal">
+        <span className="-ml-[3px] font-display text-[1.45rem] font-bold tracking-[-0.045em] text-teal">
           z
         </span>
       </span>

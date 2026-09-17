@@ -26,7 +26,7 @@ export default function InsightsPage() {
         <div className="grid-bg" />
         <div className="glow glow-teal -right-24 -top-24 h-96 w-96 opacity-40" />
 
-        <div className="relative mx-auto max-w-[1440px] px-6 pb-16 pt-14 md:px-10 md:pb-20 md:pt-20">
+        <div className="relative mx-auto max-w-[1200px] px-6 pb-16 pt-14 md:px-10 md:pb-20 md:pt-20">
           <Reveal>
             <SectionLabel>Insights</SectionLabel>
             <h1 className="t-hero mt-7 max-w-[13ch] text-balance text-navy">
@@ -36,7 +36,7 @@ export default function InsightsPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-[1440px] px-6 py-20 md:px-10 md:py-28">
+      <section className="mx-auto max-w-[1200px] px-6 py-20 md:px-10 md:py-28">
         <Reveal>
           <article className="group border-t-2 border-navy pt-10">
             <div className="flex flex-wrap items-center gap-5">
@@ -48,15 +48,15 @@ export default function InsightsPage() {
           </article>
         </Reveal>
 
-        <div className="mt-20 grid grid-cols-1 gap-px border border-line bg-line md:grid-cols-2">
+        <div className="mt-20 grid grid-cols-1 gap-5 md:grid-cols-2">
           {rest.map((article, i) => (
             <Reveal key={article.slug} delay={i * 80}>
-              <article className="card-lift h-full border border-transparent bg-white p-9">
+              <article className="card card-lift h-full p-7">
                 <div className="flex flex-wrap items-center gap-4">
                   <span className="t-eyebrow text-teal">{article.category}</span>
                   <span className="text-sm text-ink-faint">{formatDate(article.date)}</span>
                 </div>
-                <h3 className="mt-5 font-display text-2xl font-extrabold leading-snug tracking-tight text-navy">
+                <h3 className="mt-4 font-display text-lg font-bold leading-snug tracking-tight text-navy">
                   {article.title}
                 </h3>
                 <p className="mt-4 text-[0.9375rem] leading-relaxed text-ink-soft">

@@ -33,7 +33,7 @@ export default function SupportPage() {
         <div className="grid-bg grid-bg-invert" />
         <div className="glow glow-teal -left-20 top-0 h-[420px] w-[420px] opacity-30" />
 
-        <div className="relative mx-auto grid max-w-[1440px] grid-cols-1 gap-14 px-6 pb-20 pt-14 md:px-10 md:pb-28 md:pt-20 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+        <div className="relative mx-auto grid max-w-[1200px] grid-cols-1 gap-14 px-6 pb-20 pt-14 md:px-10 md:pb-28 md:pt-20 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <Reveal>
             <SectionLabel invert>Support our mission</SectionLabel>
             <h1 className="t-hero mt-7 max-w-[13ch] text-balance">
@@ -75,7 +75,7 @@ export default function SupportPage() {
       </section>
 
       {/* Where it goes */}
-      <section className="mx-auto max-w-[1440px] px-6 py-20 md:px-10 md:py-28">
+      <section className="mx-auto max-w-[1200px] px-6 py-20 md:px-10 md:py-28">
         <Reveal>
           <SectionLabel>Where contributions go</SectionLabel>
           <h2 className="t-h2 mt-6 max-w-[16ch] text-balance text-navy">
@@ -83,11 +83,11 @@ export default function SupportPage() {
           </h2>
         </Reveal>
 
-        <div className="mt-14 grid grid-cols-1 gap-px border border-line bg-line md:grid-cols-3">
+        <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-3">
           {uses.map((use, i) => (
             <Reveal key={use.title} delay={i * 80}>
-              <article className="card-lift h-full border border-transparent bg-white p-9">
-                <span className="font-display text-sm font-extrabold tracking-widest text-teal">
+              <article className="card card-lift h-full p-7">
+                <span className="font-display text-sm font-bold tracking-widest text-teal">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <h3 className="t-h3 mt-6 text-navy">{use.title}</h3>
